@@ -6,6 +6,7 @@ import Lab3 from "./Lab3";
 export default function Labs() {
   return (
     <div>
+      <h3>Hello! This is Abhinav Gadgil and Welcome to my Landing page!!!</h3>
       <h1>Labs</h1>
       <TOC />
       <Routes>
