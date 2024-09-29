@@ -1,0 +1,332 @@
+/*p {
+ background-color: blue;
+ color: white;}*/
+ .wd-selector-1 .wd-selector-3 {
+    background-color: red;
+    color: white;
+ }
+ .wd-selector-2 > .wd-selector-3 > .wd-selector-4 {
+    background-color: yellow;
+    color: blue;
+ }
+
+.wd-fg-color-black { color: black; }
+.wd-fg-color-white { color: white; }
+.wd-fg-color-blue { color: #7070ff; }
+.wd-fg-color-red { color: #ff7070; }
+.wd-fg-color-green { color: green; }
+
+.wd-bg-color-yellow {
+    background-color: #ffff07;
+ }
+ .wd-bg-color-blue {
+    background-color: #7070ff;
+ }
+ .wd-bg-color-red {
+    background-color: #ff7070;
+ }
+ .wd-bg-color-green {
+    background-color: green;
+ }
+ .wd-bg-color-gray {
+    background-color: lightgray;
+ }
+ .wd-border-fat {
+    border-width: 20px;            /* Equal border on all sides */
+    border-style: solid;            /* Border style set to solid */
+    border-color: #ff7070;          /* Red color */
+    padding: 10px;                  /* Add padding inside the border */
+    display: inline-block;          /* Make the border wrap the text */
+    margin: 10px;                   /* Optional: space between borders */
+}
+
+.wd-border-thin {
+    border-width: 4px;              /* Thin border */
+    border-style: dashed;           /* Dashed border style */
+    border-color: #7070ff;          /* Blue color */
+    padding: 10px;                  /* Padding inside the border */
+    display: inline-block;          /* Make the border wrap the text */
+    margin: 10px;                   /* Optional: space between borders */
+}
+
+.wd-border-red {
+    border-color: #ff7070; /* Red border color */
+}
+
+.wd-border-blue {
+    border-color: #7070ff; /* Blue border color */
+}
+
+
+ .some-selector {
+    border-width: 10px;  
+    border-style: solid dotted dashed double;
+    border-color: red blue green yellow; 
+}
+
+.wd-padding-top {
+    padding-top: 50px;
+}
+
+.wd-padding-left {
+    padding-left: 50px;
+}
+  
+  
+.wd-padding-bottom {
+    padding-bottom: 50px;
+
+  }
+
+  .wd-padding-right {
+    padding-right: 50px;
+
+  }
+  
+  
+  .wd-padding-fat {
+    padding: 50px;
+  }
+
+ /* Margins */
+.wd-margin-bottom {
+    margin-bottom: 100px; /* Larger margin at the bottom */
+}
+
+.wd-margin-right-left {
+    margin-left: 100px; /* Larger left margin */
+    margin-right: 100px; /* Larger right margin */
+}
+
+.wd-margin-all-around {
+    margin: 80px; /* Larger margin all around */
+}
+
+/* Borders without padding */
+.wd-border-fat {
+    border-width: 20px;
+    border-style: solid;
+    display: inline-block;
+    margin: 10px;        /* Margin around the element */
+}
+
+/* Border colors */
+.wd-border-red {
+    border-color: #ff7070;
+}
+
+.wd-border-blue {
+    border-color: #7070ff;
+}
+
+.wd-border-yellow {
+    border-color: #ffff07;
+}
+
+/* Background colors */
+.wd-bg-color-yellow {
+    background-color: #ffff07;
+}
+
+.wd-bg-color-blue {
+    background-color: #7070ff;
+}
+
+.wd-fg-color-white {
+    color: white;
+}
+/** Margins ***/
+.wd-margin-bottom {
+    margin-bottom: 100px;
+  }
+  
+  .wd-margin-right-left {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .wd-margin-all-around {
+    margin: 30px;
+  }
+  
+  .wd-rounded-corners-top {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+  }
+  
+  .wd-rounded-corners-bottom {
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+   }
+   
+   .wd-rounded-corners-all-around {
+    border-radius: 50px;
+   }
+   
+   .wd-rounded-corners-inline {
+    border-radius: 30px 0px 20px 50px;
+   }
+.wd-dimension-portrait {
+    width: 100px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+}
+
+.wd-dimension-landscape {
+    width: 150px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+}
+
+.wd-dimension-square {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Same height and width for a square */
+}
+
+.wd-pos-relative {
+    position: relative; /* This is crucial for the child elements to position correctly */
+}
+
+.wd-pos-absolute-10-10 {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+}
+
+.wd-pos-absolute-50-50 {
+   position: absolute;
+   top: 50px;
+   left: 50px;
+}
+
+.wd-pos-absolute-120-20 {
+   position: absolute;
+   top: 20px;
+   left: 120px;      
+}
+
+.wd-dimension-portrait {
+    width: 100px;
+    height: 150px;
+}
+
+.wd-dimension-landscape {
+    width: 150px;
+    height: 100px;
+}
+
+.wd-dimension-square {
+    width: 100px;
+    height: 100px;
+}
+
+.wd-pos-fixed {
+    position: fixed; /* Fixed positioning */
+    right: 0;       /* Position it on the right side */
+    top: 50%;       /* Center it vertically (you can adjust this value) */
+    transform: translateY(-50%); /* Adjust to perfectly center vertically */
+}
+
+  .wd-dimension-square {
+    width: 100px;   /* Width for the square */
+    height: 100px;  /* Height for the square */
+}
+
+.wd-zindex-bring-to-front {
+    z-index: 10;
+ }
+
+ .wd-float-left {
+    float: left;
+ }
+ 
+ .wd-float-right {
+    float: right;
+    height: 100px;
+ }
+ 
+ .wd-float-done {
+    clear: both;
+ }
+
+ .wd-grid-row {
+    clear: both;
+ }
+ 
+ .wd-grid-col-half-page {
+    width: 50%;
+    float: left;
+ }
+ 
+ .wd-grid-col-third-page {
+    width: 33%;
+    float: left;
+ }
+ 
+ .wd-grid-col-two-thirds-page {
+    width: 67%;
+    float: left;
+ }
+ 
+ .wd-grid-col-left-sidebar {
+    width: 20%;
+    float: left;
+ }
+ 
+ .wd-grid-col-main-content {
+    width: 60%;
+    float: left;
+ }
+ 
+ .wd-grid-col-right-sidebar {
+    width: 20%;
+    float: left;
+ }
+
+ .wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+.wd-flex-grow-1 {
+    flex-grow: 1;
+}
+
+.wd-flex-grow-2 {
+    flex-grow: 2;
+}
+
+.wd-flex-grow-3 {
+    flex-grow: 3;
+}
+
+.wd-width-75px {
+    width: 50px;
+  }
+
+  #wd-screen-size-label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    z-index: 1000;
+    width: 220px;
+    text-align: center;
+  }
+  
+  
+  
+ 
+ 
+ 
+  
+   
+     
+
+ 
+ 
+ 
+ 
+   
+   
