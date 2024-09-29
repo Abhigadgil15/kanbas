@@ -12,6 +12,7 @@ const App = () => {
         </Routes>
       </div>
     </HashRouter>
-  );
+  )
 }
+
 export default App;
