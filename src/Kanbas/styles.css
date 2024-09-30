@@ -1,0 +1,71 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #wd-kanbas {
+    display: flex;
+  }
+  
+  /* Main content offset */
+  @media (min-width: 768px) {
+    .wd-main-content-offset {
+      padding-left: 140px; 
+    }
+  }
+
+  #wd-kanbas-navigation {
+    position: fixed;
+    width: 140px;
+    top: 0;
+    bottom: 0;
+    background-color: #000; 
+    z-index: 1000; 
+  }
+
+  #wd-dashboard {
+    padding: 20px; /* Optional padding for the dashboard container */
+  }
+  
+  .wd-dashboard-course {
+    display: flex; /* Use flexbox for better alignment */
+    justify-content: center; /* Center items */
+  }
+  
+  .card {
+    height: 350px; /* Set a fixed height for all cards */
+    margin: 20px 0; /* Vertical margin for spacing between rows */
+  }
+  
+  .card-img-top {
+    width: 100%;              /* Full width of the card */
+    height: 160px;           /* Fixed height for the image */
+    object-fit: cover;       /* Cover the area without stretching */
+    object-position: center;  /* Center the image within the box */
+  }
+  
+  .card-body {
+    flex-grow: 1; /* Take available space */
+    display: flex; /* Use flexbox for better alignment */
+    flex-direction: column; /* Stack elements vertically */
+  }
+  
+  .card-title, .card-text {
+    white-space: nowrap;        /* Prevents text from wrapping */
+    overflow: hidden;          /* Hides the overflowing text */
+    text-overflow: ellipsis;   /* Adds ellipsis (...) for overflowing text */
+  }
+  
+  .card-title {
+    font-size: 1.2rem; /* Adjust font size */
+    margin-bottom: 10px; /* Space below title */
+  }
+  
+  .card-text {
+    flex-grow: 1; /* Make space for the description */
+    margin-bottom: 10px; /* Space below description */
+    height: 50px; /* Set a fixed height for the description */
+  }
+  
