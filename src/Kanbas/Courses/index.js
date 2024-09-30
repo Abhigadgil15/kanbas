@@ -9,10 +9,10 @@ import PDPModules from "./Modules/PDPModules"; // Import modules for PDP
 import AlgorithmsModules from "./Modules/AlgorithmsModules"; // Import modules for Algorithms
 
 export default function Courses() {
-  const { cid } = useParams(); // Get the course ID from the URL
+  const { cid } = useParams(); 
 
   const renderModules = () => {
-    switch (cid.toLowerCase()) { // normalize case to ensure matching
+    switch (cid.toLowerCase()) { 
       case "web-dev":
         return <WebDev />;
       case "pdp":
@@ -20,14 +20,14 @@ export default function Courses() {
       case "algorithms":
         return <AlgorithmsModules />;
       default:
-        return <WebDev />; // Fallback to WebDev if no matching course
+        return <WebDev />;
     }
   };
   
 
   return (
     <div id="wd-courses">
-      <h2>Course {cid}</h2> {/* Display the dynamic course ID */}
+      <h2>Course {cid}</h2> 
       <hr />
       <table>
         <tbody>

@@ -17,20 +17,19 @@ export default function Home() {
       case "pdp":
         return <PDPModules />;
       default:
-        return <WebDev />;
+        return <h2>Course yet to be unlocked</h2>;
     }
   };
 
   return (
     <div className="d-flex" id="wd-home">
-      {/* Flex-fill class for the main content */}
       <div className="flex-fill">
-        {renderModules()} {/* Render the appropriate module */}
+        {renderModules()} 
       </div>
 
       {/* Hide course status on small screens */}
       <div className="d-none d-md-block">
-        <CourseStatus /> {/* Display course status */}
+        <CourseStatus /> 
       </div>
     </div>
   );

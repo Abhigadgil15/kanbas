@@ -1,5 +1,5 @@
 /* Global styles */
-body {
+.body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -68,4 +68,5 @@ body {
     margin-bottom: 10px; /* Space below description */
     height: 50px; /* Set a fixed height for the description */
   }
+
   

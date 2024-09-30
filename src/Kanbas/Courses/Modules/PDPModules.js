@@ -21,7 +21,6 @@ export default function PDPModules() {
               </li>
             </ul>
           </li>
-          {/* Add more weeks */}
         </ul>
       </div>
     );
