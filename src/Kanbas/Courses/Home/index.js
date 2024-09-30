@@ -7,6 +7,7 @@ import CourseStatus from "./Status";
 export default function Home() {
   const { cid } = useParams(); // Get the course ID from the URL
 
+  // Function to render the appropriate module based on the course ID
   const renderModules = () => {
     switch (cid.toLowerCase()) {
       case "web-dev":
@@ -16,22 +17,21 @@ export default function Home() {
       case "pdp":
         return <PDPModules />;
       default:
-        return <WebDev />; // Default to WebDev or another default module
+        return <WebDev />;
     }
   };
 
   return (
-    <table id="wd-home">
-      <tbody>
-        <tr>
-          <td valign="top">
-            {renderModules()} {/* Render the appropriate module based on the course */}
-          </td>
-          <td valign="top">
-            <CourseStatus /> {/* Display course status */}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="d-flex" id="wd-home">
+      {/* Flex-fill class for the main content */}
+      <div className="flex-fill">
+        {renderModules()} {/* Render the appropriate module */}
+      </div>
+
+      {/* Hide course status on small screens */}
+      <div className="d-none d-md-block">
+        <CourseStatus /> {/* Display course status */}
+      </div>
+    </div>
   );
 }
