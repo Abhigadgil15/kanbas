@@ -153,4 +153,8 @@ body * { font-family:
   #wd-assignment-list {
     border-left: 4px solid rgb(8, 195, 8) !important;
   }
+
+  #wd-modules {
+    width:200%
+  }
   

@@ -23,17 +23,13 @@ export default function Home() {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}> {/* Main flex container with full height */}
-      <div style={{ flex: "1", display: "flex", flexDirection: "column" }}> {/* Left column for modules */}
-        <ModulesControls /> {/* Modules Controls on the top */}
-        <div style={{ flex: "1", marginTop: "1rem", overflowY: "auto" }}> {/* Course content area */}
-          {renderModules()} 
-        </div>
-      </div>
-
-      <div className="d-none d-lg-block" style={{ flex: "0 0 auto", minWidth: "250px" }}> {/* Right column for Course Status */}
-        <CourseStatus />
-      </div>
-    </div>
+    <div className="d-flex" id="wd-home">
+  <div className="flex-fill">
+    {renderModules()}
+  </div>
+  <div className="d-none d-md-block">
+    <CourseStatus />
+  </div>
+</div>
   );
 }

@@ -7,6 +7,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import PDPModules from "./Modules/PDPModules"; // Import modules for PDP
 import AlgorithmsModules from "./Modules/AlgorithmsModules"; // Import modules for Algorithms
+import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Tables";
 
 export default function Courses() {
@@ -28,28 +29,27 @@ export default function Courses() {
 
   return (
     <div id="wd-courses">
-      <h2>Course {cid}</h2> 
-      <hr />
-      <table>
-        <tbody>
-          <tr>
-            <td valign="top">
-              <CoursesNavigation />
-            </td>
-            <td valign="top">
-              <Routes>
-                <Route path="/" element={<Navigate to="Home" />} />
-                <Route path="Home" element={<Home />} />
-                <Route path="Modules" element={renderModules()} /> {/* Render dynamic modules */}
-                <Route path="Assignments" element={<Assignments />} />
-                <Route path="Assignments/:aid" element={<h3><AssignmentEditor /></h3>} />
-                <Route path="People" element={<PeopleTable/>} />
+  <h2 className="text-danger">
+      <FaAlignJustify className="me-4 fs-4 mb-1" />
+      Course {cid} </h2> <hr />
+  <div className="d-flex">
+    <div className="d-none d-md-block">
+      <CoursesNavigation />
 
-              </Routes>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
+    <div className="flex-fill">
+    <Routes>
+      <Route path="Home" element={<Home />} />
+      <Route path="Modules" element={renderModules()} />
+      <Route path="Assignments" element={<Assignments />} />
+      <Route path="Assignments/:aid" element={<AssignmentEditor />} />
+      <Route path ="People" element={<PeopleTable/>}/>
+    </Routes>
+    </div></div>
+</div>
+
+
+
+
   );
 }

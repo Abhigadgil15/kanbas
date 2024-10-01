@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle, FaSearch } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import GreenCheckMark from "../Modules/GreenCheckMark";
+import LessonControlButtons from "../Modules/LessonControlButton";
 
 export default function Assignments() {
   const { cid } = useParams(); 
@@ -74,19 +74,8 @@ export default function Assignments() {
       </p>
       <div className="position-absolute top-0 end-0 m-2 d-flex align-items-center">
         {/* Adding GreenCheckMark component before the dropdown */}
-        <GreenCheckMark className="me-2" />
-        
-        {/* Dropdown for ellipsis icon with 'Delete' option */}
-        <div className="dropdown">
-          <button className="btn btn-link p-0" type="button" id={`dropdownMenuButton${assignment.id}`} data-bs-toggle="dropdown" aria-expanded="false">
-            <FaEllipsisV />
-          </button>
-          <ul className="dropdown-menu dropdown-menu-end" aria-labelledby={`dropdownMenuButton${assignment.id}`}>
-            <li>
-              <button className="dropdown-item" type="button">Delete</button>
-            </li>
-          </ul>
-        </div>
+        <LessonControlButtons className="me-2" />
+
       </div>
     </li>
   ))}
