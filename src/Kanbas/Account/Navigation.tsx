@@ -7,4 +7,3 @@ export default function AccountNavigation() {
       <Link to={`/Kanbas/Account/Profile`} > Profile </Link> <br/>
     </div>
 );}
-
