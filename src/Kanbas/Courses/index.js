@@ -7,6 +7,7 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import PDPModules from "./Modules/PDPModules"; // Import modules for PDP
 import AlgorithmsModules from "./Modules/AlgorithmsModules"; // Import modules for Algorithms
+import PeopleTable from "./People/Tables";
 
 export default function Courses() {
   const { cid } = useParams(); 
@@ -42,7 +43,8 @@ export default function Courses() {
                 <Route path="Modules" element={renderModules()} /> {/* Render dynamic modules */}
                 <Route path="Assignments" element={<Assignments />} />
                 <Route path="Assignments/:aid" element={<h3><AssignmentEditor /></h3>} />
-                <Route path="People" element={<h3>People</h3>} />
+                <Route path="People" element={<PeopleTable/>} />
+
               </Routes>
             </td>
           </tr>
