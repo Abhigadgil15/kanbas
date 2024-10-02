@@ -1,77 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-
 export default function Assignments() {
-  const { cid } = useParams(); // Get the current course ID
-
-  // Assignment data for different courses
-  const assignmentsData = {
-    'web-dev': [
-      {
-        id: 1,
-        name: "A1 - ENV + HTML",
-        description: "Multiple Modules",
-        available: "Not available until May 6 at 12:00 am",
-        due: "Due May 13 at 11:59 pm",
-        points: 100
-      },
-      {
-        id: 2,
-        name: "A2 - CSS + Bootstrap",
-        description: "Single Module",
-        available: "Available from May 15 at 12:00 am",
-        due: "Due May 22 at 11:59 pm",
-        points: 100
-      },
-      {
-        id: 3,
-        name: "A3 - JavaScript + React",
-        description: "Multiple Modules",
-        available: "Available from May 25 at 12:00 am",
-        due: "Due June 1 at 11:59 pm",
-        points: 150
-      }
-    ],
-    'pdp': [
-      {
-        id: 1,
-        name: "PDP Assignment 1",
-        description: "Reflection Paper",
-        available: "Available now",
-        due: "Due March 15 at 11:59 pm",
-        points: 50
-      },
-      {
-        id: 2,
-        name: "PDP Assignment 2",
-        description: "Final Presentation",
-        available: "Available from April 1",
-        due: "Due April 10 at 11:59 pm",
-        points: 100
-      }
-    ],
-    'algorithms': [
-      {
-        id: 1,
-        name: "Algo Assignment 1",
-        description: "Binary Search",
-        available: "Available from May 1 at 12:00 am",
-        due: "Due May 7 at 11:59 pm",
-        points: 100
-      },
-      {
-        id: 2,
-        name: "Algo Assignment 2",
-        description: "Heaps",
-        available: "Available from May 10 at 12:00 am",
-        due: "Due May 17 at 11:59 pm",
-        points: 150
-      }
-    ]
-  };
-
-  // Get assignments based on the current course ID
-  const assignments = assignmentsData[cid] || [];
-
   return (
     <div id="wd-assignments">
       <input id="wd-search-assignment" placeholder="Search for Assignments" />
@@ -81,22 +8,72 @@ export default function Assignments() {
         ASSIGNMENTS 40% of Total <button>+</button>
       </h3>
       <ul id="wd-assignment-list">
-        {assignments.map((assignment) => (
-          <li key={assignment.id} className="wd-assignment-list-item">
-            <Link
-              className="wd-assignment-link"
-              to={`/Kanbas/Courses/${cid}/Assignments/${assignment.id}`}
-            >
-              {assignment.name}
-            </Link>
-            <p>
-              {assignment.description} <br />
-              <b>{assignment.available}</b> <br />
-              <b>{assignment.due}</b> <br />
-              <b>{assignment.points} points</b>
-            </p>
-          </li>
-        ))}
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A1 - Binary Search Trees
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> June 8 at 12:00 am |{" "}
+          <b>Due</b> June 23 at 11:59 pm | 100 pts
+        </li>
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A2 - Queues and Stacks
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> June 27 12:00 am |{" "}
+          <b>Due</b> July 7 at 11:59 pm | 100 pts
+        </li>
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A3 - Heaps and Priority Queues
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> Aug 7 at 12:00 am |{" "}
+          <b>Due</b> Aug 13 at 11:59 pm | 100 pts
+        </li>
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A4 -Graphs
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> Sept 13 at 12:00 am |{" "}
+          <b>Due</b> Sep 30 at 11:59 pm | 100 pts
+        </li>
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A5 - Dynamic Programming
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> Oct 08 at 12:00 am |{" "}
+          <b>Due</b> Oct 20 at 11:59 pm | 100 pts
+        </li>
+        <li className="wd-assignment-list-item">
+          <a
+            className="wd-assignment-link"
+            href="#/Kanbas/Courses/1234/Assignments/123"
+          >
+            A6 - Advanced Data Structures
+          </a>
+          <br />
+          Multiple Modules | <b>Not available until</b> Nov 4 at 12:00 am |{" "}
+          <b>Due</b> Nov 21 at 11:59 pm | 100 pts
+        </li>
       </ul>
     </div>
   );
