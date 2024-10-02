@@ -6,7 +6,7 @@ export default function AssignmentEditor() {
       </b>
       <br />
       <br />
-      <input id="wd-name" value="A1 - ENV + HTML" />
+      <input id="wd-name" value="A1 - Binary Search Trees" />
       <br />
       <br />
       <textarea id="wd-description" cols={30} rows={10}>
@@ -118,7 +118,7 @@ export default function AssignmentEditor() {
                   type="date"
                   name="wd-available-until"
                   id="wd-available-until"
-                  value="2024-06-23"
+                  value="2024-06-25"
                 />
               </td>
             </tr>
