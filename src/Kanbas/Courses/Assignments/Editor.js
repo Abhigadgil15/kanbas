@@ -1,141 +1,152 @@
+
+
 export default function AssignmentEditor() {
   return (
-    <div id="wd-assignments-editor">
+    <div id="wd-assignments-editor" className="p-3">
       <b>
         <label htmlFor="wd-name">Assignment Name</label>
       </b>
       <br />
-      <br />
-      <input id="wd-name" value="A1 - Binary Search Trees" />
-      <br />
-      <br />
-      <textarea id="wd-description" cols={30} rows={10}>
-        Write the algorithm of Binary Search Tree.
-      </textarea>
-      <br />
-      <br />
-      <table>
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-points">Points</label>
-          </td>
-          <td>
-            <input id="wd-points" value={100} />
-          </td>
-        </tr>
-        <br />
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-group">Assignment Group</label>
-          </td>
-          <td>
-            <select id="wd-group">
-              <option value="ASSIGNMENTS">ASSIGNMENTS</option>
-            </select>
-          </td>
-        </tr>
-        <br />
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-display-grade-as">Display Grade as</label>
-          </td>
-          <td>
-            <select id="wd-display-grade-as">
-              <option value="PERCENTAGE">PERCENTAGE</option>
-            </select>
-          </td>
-        </tr>
-        <br />
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-submission-type">Submission Type</label>
-          </td>
-          <td>
-            <select id="wd-submission-type">
+      <input id="wd-name" value="A1 - Binary Search Trees" className="form-control mb-3" />
+
+      <div className="form-group mb-3">
+        <p style={{ color: "red", fontWeight: "bold" }}>
+          This assignment is available online
+        </p>
+        <textarea
+          id="wd-description"
+          cols={30}
+          rows={10}
+          className="form-control"
+          style={{ borderColor: "lightgray" }}
+        >
+          Write the algorithm of Binary Search Tree.
+        </textarea>
+      </div>
+
+
+      <div className="mb-3">
+        <label htmlFor="wd-points"><b>Points</b></label>
+        <input id="wd-points" value={100} className="form-control mb-3" />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="wd-group"><b>Assignment Group</b></label>
+        <select id="wd-group" className="form-control">
+          <option value="ASSIGNMENTS">Assignments</option>
+          <option value="QUIZZES">Quizzes</option>
+          <option value="PROJECTS">Projects</option>
+          <option value="DISCUSSIONS">Discussions</option>
+        </select>
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="wd-display-grade-as"><b>Display Grade as</b></label>
+        <select id="wd-display-grade-as" className="form-control mb-3">
+          <option value="PERCENTAGE">PERCENTAGE</option>
+          <option value="PERCENTAGE">NUMBER</option>
+        </select>
+      </div>
+
+      <div className="card mb-3">
+        <div className="card-body">
+          <div className="mb-3">
+            <label htmlFor="wd-submission-type"><b>Submission Type</b></label>
+            <select id="wd-submission-type" className="form-control">
               <option value="Online">Online</option>
+              <option value="In Person">On Paper</option>
             </select>
-            <br />
-            <br />
-            Online Entry Options
-            <br />
-            <input type="checkbox" id="wd-text-entry" />
-            <label htmlFor="wd-text-entry">Text Entry</label>
-            <br />
-            <input type="checkbox" id="wd-website-url" />
-            <label htmlFor="wd-website-url">Website URL</label>
-            <br />
-            <input type="checkbox" id="wd-media-recordings" />
-            <label htmlFor="wd-media-recordings">Media Recordings</label>
-            <br />
-            <input type="checkbox" id="wd-student-annotation" />
-            <label htmlFor="wd-student-annotation">Student Annotation</label>
-            <br />
-            <input type="checkbox" id="wd-file-upload" />
-            <label htmlFor="wd-file-upload">File Uploads</label>
-          </td>
-        </tr>
+          </div>
 
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-assign-to">Assign</label>
-          </td>
+          <div className="mb-3">
+            <b>Online Entry Options</b>
+            <div className="form-check">
+              <input type="checkbox" id="wd-text-entry" className="form-check-input" />
+              <label htmlFor="wd-text-entry" className="form-check-label">Text Entry</label>
+            </div>
+            <div className="form-check">
+              <input type="checkbox" id="wd-website-url" className="form-check-input" />
+              <label htmlFor="wd-website-url" className="form-check-label">Website URL</label>
+            </div>
+            <div className="form-check">
+              <input type="checkbox" id="wd-media-recordings" className="form-check-input" />
+              <label htmlFor="wd-media-recordings" className="form-check-label">Media Recordings</label>
+            </div>
+            <div className="form-check">
+              <input type="checkbox" id="wd-student-annotation" className="form-check-input" />
+              <label htmlFor="wd-student-annotation" className="form-check-label">Student Annotation</label>
+            </div>
+            <div className="form-check">
+              <input type="checkbox" id="wd-file-upload" className="form-check-input" />
+              <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <td align="left" valign="top">
-            <label htmlFor="wd-assign-to">Assign to</label>
-            <br />
-            <input
-              type="text"
-              name="wd-assign-to"
-              id="wd-assign-to"
-              value={"Everyone"}
-            />
-            <br />
-            <br />
-            <label htmlFor="wd-due-date">Due</label>
-            <br />
+
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <label htmlFor="wd-assign-to"><b>Assign to</b></label>
+          <input
+            type="text"
+            name="wd-assign-to"
+            id="wd-assign-to"
+            value={"Everyone"}
+            className="form-control"
+          />
+        </div>
+
+        <div className="col-md-6">
+          <label htmlFor="wd-due-date"><b>Due</b></label>
+          <div className="input-group">
             <input
               type="date"
               name="wd-due-date"
               id="wd-due-date"
               value="2024-05-13"
+              className="form-control"
             />
-            <br />
-            <br />
-            <tr>
-              <td align="left" valign="top">
-                <label htmlFor="wd-available-from">Available from</label>
-                <br />
-                <input
-                  type="date"
-                  name="wd-available-from"
-                  id="wd-available-from"
-                  value="2024-05-06"
-                />
-              </td>
-              <td align="left" valign="top">
-                <label htmlFor="wd-available-until">Until</label> <br />
-                <input
-                  type="date"
-                  name="wd-available-until"
-                  id="wd-available-until"
-                  value="2024-06-25"
-                />
-              </td>
-            </tr>
-          </td>
-        </tr>
-        <tr>
-          <td colSpan={2}>
-            <hr />
-          </td>
-        </tr>
-        <tr>
-          <td colSpan={2} align="right">
-            <button type="button">Cancel</button>
-            <button type="button">Save</button>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
+      </div>
+
+      <div className="row mb-3">
+        <div className="col-md-6">
+          <label htmlFor="wd-available-from"><b>Available from</b></label>
+          <div className="input-group">
+            <input
+              type="date"
+              name="wd-available-from"
+              id="wd-available-from"
+              value="2024-05-06"
+              className="form-control"
+            />
+
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          <label htmlFor="wd-available-until"><b>Until</b></label>
+          <div className="input-group">
+            <input
+              type="date"
+              name="wd-available-until"
+              id="wd-available-until"
+              value="2024-06-25"
+              className="form-control"
+            />
+
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div className="d-flex justify-content-end">
+        <button type="button" className="btn btn-secondary me-2">Cancel</button>
+        <button type="button" className="btn btn-success">Save</button>
+      </div>
     </div>
   );
 }
