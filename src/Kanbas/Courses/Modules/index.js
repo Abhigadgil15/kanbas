@@ -3,27 +3,21 @@ import ModulesControls from "./ModulesControls";
 export default function Algorithms() {
   return (
     <div>
-      <ModulesControls/><br/><br/><br/><br/>
-      <button type="button">Collapse All</button>
-      <button type="button">View Progress</button>
-      <select id="">
-        <option value="PUBLISH ALL">Publish All</option>
-      </select>
-      <button type="button">+ Modules</button>
-      <ul id="wd-modules">
-        <li className="wd-module">
-          <div className="wd-title">Week 1</div>
-          <ul className="wd-lessons">
-            <li className="wd-lesson">
-              <span className="wd-title">LEARNING OBJECTIVES</span>
+      <ModulesControls /><br /><br /><br /><br />
+      <ul id="wd-modules" className="list-group rounded-0">
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">Week 1</div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              LEARNING OBJECTIVES
               <ul className="wd-content">
                 <li className="wd-content-item">Introduction to Algorithms</li>
                 <li className="wd-content-item">Basic Data Structures</li>
                 <li className="wd-content-item">Algorithmic Thinking</li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Reading</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Reading
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Chapter 1 - Introduction to Algorithms
@@ -33,8 +27,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Slides</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Slides
               <ul className="wd-content">
                 <li className="wd-content-item">Algorithmic Foundations</li>
                 <li className="wd-content-item">
@@ -42,8 +36,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">A1 Lab</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              A1 Lab
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Implementing Basic Sorting Algorithms
@@ -56,11 +50,11 @@ export default function Algorithms() {
           </ul>
         </li>
 
-        <li className="wd-module">
-          <div className="wd-title">Week 2</div>
-          <ul className="wd-lessons">
-            <li className="wd-lesson">
-              <span className="wd-title">LEARNING OBJECTIVES</span>
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">Week 2</div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              LEARNING OBJECTIVES
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Introduction to Trees and Graphs
@@ -70,8 +64,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Reading</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Reading
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Chapter 3 - Trees: Binary, AVL, and B-Trees
@@ -81,8 +75,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Slides</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Slides
               <ul className="wd-content">
                 <li className="wd-content-item">Graph Theory Basics</li>
                 <li className="wd-content-item">
@@ -90,8 +84,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">A1 Lab</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              A1 Lab
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Solving Tree Traversal Problems
@@ -104,11 +98,11 @@ export default function Algorithms() {
           </ul>
         </li>
 
-        <li className="wd-module">
-          <div className="wd-title">Week 3</div>
-          <ul className="wd-lessons">
-            <li className="wd-lesson">
-              <span className="wd-title">LEARNING OBJECTIVES</span>
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">Week 3</div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              LEARNING OBJECTIVES
               <ul className="wd-content">
                 <li className="wd-content-item">Dynamic Programming</li>
                 <li className="wd-content-item">
@@ -116,8 +110,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Reading</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Reading
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Chapter 5 - Solving Problems with Dynamic Programming
@@ -127,8 +121,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Slides</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Slides
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Key Concepts in Dynamic Programming
@@ -138,8 +132,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">A2 Labs</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              A2 Labs
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Implementing Greedy vs. Dynamic Solutions
@@ -149,11 +143,11 @@ export default function Algorithms() {
           </ul>
         </li>
 
-        <li className="wd-module">
-          <div className="wd-title">Week 4</div>
-          <ul className="wd-lessons">
-            <li className="wd-lesson">
-              <span className="wd-title">LEARNING OBJECTIVES</span>
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">Week 4</div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              LEARNING OBJECTIVES
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Hashing Techniques and Hash Tables
@@ -161,23 +155,23 @@ export default function Algorithms() {
                 <li className="wd-content-item">Collision Resolution</li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Reading</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Reading
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Chapter 7 - Hash Tables and Their Applications
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Slides</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Slides
               <ul className="wd-content">
                 <li className="wd-content-item">Introduction to Hashing</li>
                 <li className="wd-content-item">Open Addressing vs. Chaining</li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">EVALUATIONS</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              EVALUATIONS
               <ul className="wd-content">
                 <li className="wd-content-item">Q2</li>
                 <li className="wd-content-item">A2</li>
@@ -186,11 +180,11 @@ export default function Algorithms() {
           </ul>
         </li>
 
-        <li className="wd-module">
-          <div className="wd-title">Week 5</div>
-          <ul className="wd-lessons">
-            <li className="wd-lesson">
-              <span className="wd-title">LEARNING OBJECTIVES</span>
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary">Week 5</div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              LEARNING OBJECTIVES
               <ul className="wd-content">
                 <li className="wd-content-item">Advanced Sorting Techniques</li>
                 <li className="wd-content-item">
@@ -198,16 +192,16 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Reading</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Reading
               <ul className="wd-content">
                 <li className="wd-content-item">
                   Chapter 8 - QuickSort, MergeSort, and Heapsort
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">Slides</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              Slides
               <ul className="wd-content">
                 <li className="wd-content-item">Mastering Sorting Algorithms</li>
                 <li className="wd-content-item">
@@ -215,8 +209,8 @@ export default function Algorithms() {
                 </li>
               </ul>
             </li>
-            <li className="wd-lesson">
-              <span className="wd-title">EVALUATIONS</span>
+            <li className="wd-lesson list-group-item p-3 ps-1">
+              EVALUATIONS
               <ul className="wd-content">
                 <li className="wd-content-item">Q3</li>
                 <li className="wd-content-item">A3</li>
