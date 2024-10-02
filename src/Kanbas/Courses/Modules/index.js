@@ -1,6 +1,9 @@
+import ModulesControls from "./ModulesControls";
+
 export default function Algorithms() {
   return (
     <div>
+      <ModulesControls/><br/><br/><br/><br/>
       <button type="button">Collapse All</button>
       <button type="button">View Progress</button>
       <select id="">

@@ -26,10 +26,10 @@ export default function KanbasNavigation() {
                    bg-black text-center border-0">
         <LiaBookSolid className="fs-1 text-danger" />
         Courses </Link>
-        <Link to="/Kanbas/Calender" id="wd-calender-link"
+        <Link to="/Kanbas/Calendar" id="wd-calender-link"
         className="list-group-item text-center border-0 bg-black text-white">
         <IoCalendarOutline className="fs-1 text-danger" />
-        Calender
+        Calendar
         </Link>
         <Link to="/Kanbas/Inbox" id="wd-inbox-link"
         className="list-group-item text-center border-0 bg-black text-white">
