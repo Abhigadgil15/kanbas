@@ -11,9 +11,9 @@ export default function Dashboard() {
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {/* Course Card 1 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/full-stack-development.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="algo" />
+                <img src="/images/full-stack-development.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="algo" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS1234 React JS
@@ -29,9 +29,9 @@ export default function Dashboard() {
 
           {/* Course Card 2 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/java1.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }}alt="pdp" />
+                <img src="/images/java1.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="pdp" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS5010 PDP
@@ -47,9 +47,9 @@ export default function Dashboard() {
 
           {/* Course Card 3 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/webdev.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="wd" />
+                <img src="/images/webdev.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="wd" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     5600 Web Development
@@ -65,9 +65,9 @@ export default function Dashboard() {
 
           {/* Course Card 4 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/CC.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="cc" />
+                <img src="/images/CC.png" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="cc" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS6100 Cloud Computing
@@ -83,12 +83,12 @@ export default function Dashboard() {
 
           {/* Course Card 5 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/CE.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="ce" />
+                <img src="/images/CE.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="ce" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
-                    CS6700 Computer Engineering
+                    CS6700 CE
                   </h5>
                   <p className="wd-dashboard-course-title card-text">
                     Computer Engineering
@@ -101,15 +101,15 @@ export default function Dashboard() {
 
           {/* Course Card 6 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/nlp.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="nlp" />
+                <img src="/images/nlp.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="nlp" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
-                    CS6821 Natural Language Processing
+                    CS6821 NLP
                   </h5>
                   <p className="wd-dashboard-course-title card-text">
-                    NLP Course
+                    Natural Language Processing
                   </p>
                   <button className="btn btn-primary"> Go </button>
                 </div>
@@ -119,9 +119,9 @@ export default function Dashboard() {
 
           {/* Course Card 7 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/algorithms.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="ca" />
+                <img src="/images/algorithms.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="ca" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS5800 Algorithms
@@ -137,15 +137,15 @@ export default function Dashboard() {
 
           {/* Course Card 8 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/cv.avif" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="thesis" />
+                <img src="/images/cv.avif" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="thesis" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
                     CS6897 Computer Vision
                   </h5>
                   <p className="wd-dashboard-course-title card-text">
-                    Iintroduction to OpenCv library
+                    Introduction to OpenCV library
                   </p>
                   <button className="btn btn-primary"> Go </button>
                 </div>
@@ -155,15 +155,15 @@ export default function Dashboard() {
 
           {/* Course Card 9 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/SE.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="iot" />
+                <img src="/images/SE.webp" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="ml" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
-                    CS6287 Software Enginerring
+                    CS7654 Software Engineering
                   </h5>
                   <p className="wd-dashboard-course-title card-text">
-                    Internet of Things
+                    Software Engineering Principles
                   </p>
                   <button className="btn btn-primary"> Go </button>
                 </div>
@@ -173,12 +173,12 @@ export default function Dashboard() {
 
           {/* Course Card 10 */}
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
-            <div className="card rounded-3 overflow-hidden border">
+            <div className="card rounded-3 overflow-hidden border" style={{ height: "350px" }}>
               <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/1234/Home">
-                <img src="/images/IoT.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "auto", maxHeight: "160px", width: "100%", objectFit: "contain" }} alt="iot" />
+                <img src="/images/IoT.jpg" className="card-img-top" style={{ border: "1px solid #dee2e6", height: "200px", width: "100%", objectFit: "cover" }} alt="dl" />
                 <div className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">
-                    CS6340 IoT
+                  CS6340 IoT
                   </h5>
                   <p className="wd-dashboard-course-title card-text">
                     Internet of Things
