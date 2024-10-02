@@ -1,71 +1,161 @@
 import { Link } from "react-router-dom";
-
-const Dashboard = () => {
+export default function Dashboard() {
   return (
     <div id="wd-dashboard">
-      <h1 id="wd-dashboard-title">Dashboard</h1>
-      <hr />
-      <h2 id="wd-dashboard-published">Published Courses (3)</h2>
-      <hr />
-      <div id="wd-dashboard-courses" className="course-container">
+      <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
+      <h2 id="wd-dashboard-published">Published Courses (10)</h2> <hr />
+      <div id="wd-dashboard-courses">
         <div className="wd-dashboard-course">
-          <img
-            src="https://via.placeholder.com/200" // Placeholder image link
-            alt="Web Development Course" // Meaningful alt text
-            width={200}
-          />
+          <img src="/images/algorithms.jpg" width={200} alt="algo"/>
           <div>
             <Link
               className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/web-dev/Home"
+              to="/Kanbas/Courses/1234/Home"
             >
-              CS5600
-            </Link>
-            <p className="wd-dashboard-course-title">Web Development</p>
-            <Link to="/Kanbas/Courses/web-dev/Home"> Go </Link>
-          </div>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <img
-            src="https://via.placeholder.com/200" // Placeholder image link
-            alt="Algorithms Course" // Meaningful alt text
-            width={200}
-          />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/algorithms/Home"
-            >
-              CS5784
-            </Link>
-            <p className="wd-dashboard-course-title">Algorithms</p>
-            <Link to="/Kanbas/Courses/algorithms/Home"> Go </Link>
-          </div>
-        </div>
-
-        <div className="wd-dashboard-course">
-          <img
-            src="https://via.placeholder.com/200" // Placeholder image link
-            alt="Programming Paradigms Course" // Meaningful alt text
-            width={200}
-          />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/pdp/Home"
-            >
-              CS5010
+              CS1234 Algorithms
             </Link>
             <p className="wd-dashboard-course-title">
-              Paradigms of Programming Design
+              Problem Solving and Analytical thinking
             </p>
-            <Link to="/Kanbas/Courses/pdp/Home"> Go </Link>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
           </div>
+        </div>
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="pdp" />
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS5010 PDP
+            </Link>
+            <p className="wd-dashboard-course-title">Paradigms of Programming</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>{" "}
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="wd"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              5600 Web Development
+            </Link>
+            <p className="wd-dashboard-course-title">Web Development</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>{" "}
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="cc"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS6100 Cloud Computing
+            </Link>
+            <p className="wd-dashboard-course-title">Cloud Computing</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>{" "}
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="ce" />
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS6700 Computer Engineering
+            </Link>
+            <p className="wd-dashboard-course-title">Computer Engineering</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>{" "}
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="nlp"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS6821 Natural Language Processing
+            </Link>
+            <p className="wd-dashboard-course-title">NLP Course</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>{" "}
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/nlp.webp" width={200} alt="ca"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS6900 Computer Applications
+            </Link>
+            <p className="wd-dashboard-course-title">Applications of SD</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt="thesis"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS7000 Master Thesis
+            </Link>
+            <p className="wd-dashboard-course-title">Research Curse</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200}  alt="ml"/>
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS5325 Machine Learning
+            </Link>
+            <p className="wd-dashboard-course-title">Machine Learning</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
+        </div>
+        <br />
+        <div className="wd-dashboard-course">
+          {" "}
+          <img src="/images/algorithms.jpg" width={200} alt ="NN" />
+          <div>
+            <Link
+              className="wd-dashboard-course-link"
+              to="/Kanbas/Courses/1234/Home"
+            >
+              CS6321 Neural Networks
+            </Link>
+            <p className="wd-dashboard-course-title">Neural Networks</p>
+            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+          </div>{" "}
         </div>
       </div>
     </div>
   );
-};
-
-export default Dashboard;
+}
