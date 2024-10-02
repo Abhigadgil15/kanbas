@@ -5,7 +5,7 @@ import GreenCheckMark from "./GreenCheckMark";
 export default function ModulesControls() {
   return (
     <div id="wd-modules-controls" className="text-nowrap">
-      <div className="d-inline"> {/* Added div to group buttons */}
+      <div className="d-inline">
         <button
           id="wd-add-module-btn"
           className="btn btn-lg btn-danger me-1"
@@ -25,38 +25,54 @@ export default function ModulesControls() {
           </button>
           <ul className="dropdown-menu">
             <li>
-              <a id="wd-publish-all-modules-and-items-btn" className="dropdown-item" href="#">
+              <button 
+                id="wd-publish-all-modules-and-items-btn" 
+                className="dropdown-item" 
+                type="button"
+              >
                 <GreenCheckMark />
                 Publish all modules and items
-              </a>
+              </button>
             </li>
             <li>
-              <a id="wd-publish-modules-only-button" className="dropdown-item" href="#">
+              <button 
+                id="wd-publish-modules-only-button" 
+                className="dropdown-item" 
+                type="button"
+              >
                 <GreenCheckMark />
                 Publish modules only
-              </a>
+              </button>
             </li>
             <li>
-              <a id="wd-unpublish-all-modules-and-items" className="dropdown-item" href="#">
+              <button 
+                id="wd-unpublish-all-modules-and-items" 
+                className="dropdown-item" 
+                type="button"
+              >
                 <IoBan />
                 Unpublish all modules and items
-              </a>
+              </button>
             </li>
             <li>
-              <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
+              <button 
+                id="wd-unpublish-modules-only" 
+                className="dropdown-item" 
+                type="button"
+              >
                 <IoBan />
                 Unpublish modules only
-              </a>
+              </button>
             </li>
           </ul>
         </div>
         <button id="wd-view-progress" className="btn btn-lg btn-secondary me-1" type="button">
           View Progress
         </button>
-        <button id="wd-collpase-all" className="btn btn-lg btn-secondary" type="button">
+        <button id="wd-collapse-all" className="btn btn-lg btn-secondary" type="button">
           Collapse All
         </button>
-      </div> {/* End of added div */}
+      </div>
     </div>
   );
 }
