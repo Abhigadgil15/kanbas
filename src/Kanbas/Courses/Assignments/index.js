@@ -1,6 +1,8 @@
 import { BsGripVertical } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa"; // Importing plus icon for buttons
-import { MdSearch } from "react-icons/md"; // Importing search icon for the search input
+import { FaRegEdit } from "react-icons/fa";
+import { IoEllipsisVertical } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa"; 
+import { MdSearch } from "react-icons/md"; 
 import LessonControlButtons from "../Modules/LessonControlButton";
 
 export default function Assignments() {
@@ -19,7 +21,7 @@ export default function Assignments() {
         </div>
         <button
           id="wd-add-assignment-group"
-          className="btn btn-transparent me-2" // Transparent Group button
+          className="btn btn-transparent me-2" 
         >
           <FaPlus /> Group
         </button>
@@ -29,11 +31,13 @@ export default function Assignments() {
         >
           <FaPlus /> Assignment
         </button>
+        
       </div>
       <div className="card" style={{ height: 'auto', padding: '10px' }}>
         <div className="card-body p-2">
           <h3 id="wd-assignments-title" className="d-flex justify-content-between align-items-center fs-5 mb-2">
             <div className="d-flex align-items-center">
+            
               <BsGripVertical /> <span className="ms-2">ASSIGNMENTS</span> {/* Added margin for spacing */}
             </div>
             <div className="d-flex align-items-center">
@@ -41,6 +45,7 @@ export default function Assignments() {
               <button className="btn btn-secondary rounded-pill">
                 <FaPlus />
               </button>
+              <IoEllipsisVertical className="fs-4" />
             </div>
           </h3>
         </div>
@@ -48,6 +53,7 @@ export default function Assignments() {
       <ul id="wd-assignment-list" className="list-group rounded-0">
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"
@@ -66,6 +72,7 @@ export default function Assignments() {
         </li>
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"
@@ -84,6 +91,7 @@ export default function Assignments() {
         </li>
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"
@@ -102,6 +110,7 @@ export default function Assignments() {
         </li>
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"
@@ -120,6 +129,7 @@ export default function Assignments() {
         </li>
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"
@@ -138,6 +148,7 @@ export default function Assignments() {
         </li>
         <li className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
           <BsGripVertical className="me-2 fs-3" />
+          <FaRegEdit className="text-success me-2 ms-2 mt-1" />
           <div className="flex-grow-1">
             <a
               className="wd-assignment-link"

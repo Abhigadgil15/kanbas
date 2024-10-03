@@ -1,5 +1,3 @@
-
-
 export default function AssignmentEditor() {
   return (
     <div id="wd-assignments-editor" className="p-3">
@@ -47,11 +45,10 @@ export default function AssignmentEditor() {
           <option value="PERCENTAGE">NUMBER</option>
         </select>
       </div>
-
+      <label htmlFor="wd-submission-type"><b>Submission Type</b></label>
       <div className="card mb-3">
         <div className="card-body">
           <div className="mb-3">
-            <label htmlFor="wd-submission-type"><b>Submission Type</b></label>
             <select id="wd-submission-type" className="form-control">
               <option value="Online">Online</option>
               <option value="In Person">On Paper</option>
@@ -86,15 +83,22 @@ export default function AssignmentEditor() {
 
 
       <div className="row mb-3">
-        <div className="col-md-6">
-          <label htmlFor="wd-assign-to"><b>Assign to</b></label>
-          <input
-            type="text"
-            name="wd-assign-to"
-            id="wd-assign-to"
-            value={"Everyone"}
-            className="form-control"
-          />
+        <div class="col-md-6">
+          <label for="wd-assign-to"><b>Assign to</b></label>
+          <div class="form-control" id="wd-assign-to">
+            <span class="badge bg-secondary me-1">
+              Everyone
+              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+            </span>
+            <span class="badge bg-secondary me-1">
+              Students
+              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+            </span>
+            <span class="badge bg-secondary me-1">
+              Admins
+              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+            </span>
+          </div>
         </div>
 
         <div className="col-md-6">
@@ -114,7 +118,7 @@ export default function AssignmentEditor() {
       <div className="row mb-3">
         <div className="col-md-6">
           <label htmlFor="wd-available-from"><b>Available from</b></label>
-          <div className="input-group">
+          <div className="input-group"> 
             <input
               type="date"
               name="wd-available-from"
@@ -122,7 +126,7 @@ export default function AssignmentEditor() {
               value="2024-05-06"
               className="form-control"
             />
-
+            
           </div>
         </div>
 
