@@ -4,7 +4,7 @@ import GreenCheckMark from "./GreenCheckMark";
 
 export default function ModulesControls() {
   return (
-    <div id="wd-modules-controls" className="text-nowrap">
+    <div id="wd-modules-controls" className="text-nowrap float-end">
       <div className="d-inline">
         <button
           id="wd-add-module-btn"
