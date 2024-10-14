@@ -159,7 +159,7 @@
       "_id": "M5600",
       "name": "HTML & CSS",
       "description": "Introduction to HTML and CSS for building web pages.",
-      "course": "5600",
+      "course": "CS5600",
       "lessons": [
         {
           "_id": "L56001",
@@ -185,7 +185,7 @@
       "_id": "M5601",
       "name": "JavaScript for Web Development",
       "description": "Learn JavaScript for adding interactivity to web pages.",
-      "course": "5600",
+      "course": "CS5600",
       "lessons": [
         {
           "_id": "L56011",
@@ -211,7 +211,7 @@
       "_id": "M5602",
       "name": "Backend Development",
       "description": "Introduction to backend development for the web.",
-      "course": "5600",
+      "course": "CS5600",
       "lessons": [
         {
           "_id": "L56021",
@@ -857,6 +857,7 @@
           }
         ]
       },
+
         {
           "_id": "CS6340",
           "name": "IOT",

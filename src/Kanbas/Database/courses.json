@@ -24,15 +24,15 @@
     "imagePath":"images/pdp.jpg"
   },
   {
-    "_id": "5600",
+    "_id": "CS5600",
     "name": "Web Development",
-    "number": "5600",
+    "number": "CS5600",
     "startDate": "2023-03-01",
     "endDate": "2023-07-01",
     "department": "Computer Science",
     "credits": 3,
     "description": "Learn the fundamentals of web development, from HTML and CSS to JavaScript and backend technologies. This hands-on course empowers you to build responsive and modern websites, preparing you for a career in web development.",
-    "LinkTo": "/Kanbas/Courses/5600/Home",
+    "LinkTo": "/Kanbas/Courses/CS5600/Home",
     "imagePath":"images/webdev.jpg"
   },
   {

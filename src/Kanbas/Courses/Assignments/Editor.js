@@ -1,11 +1,26 @@
+import { useParams } from "react-router";
+import { assignments } from "../../Database"; 
+
 export default function AssignmentEditor() {
+  const { aid } = useParams();
+  const assignment = assignments.find((assignment) => assignment._id === aid);
+
+  if (!assignment) {
+    return <div>Assignment not found</div>;
+  }
+
   return (
     <div id="wd-assignments-editor" className="p-3">
       <b>
         <label htmlFor="wd-name">Assignment Name</label>
       </b>
       <br />
-      <input id="wd-name" value="A1 - Binary Search Trees" className="form-control mb-3" />
+      <input 
+        id="wd-name" 
+        value={assignment.title} 
+        className="form-control mb-3" 
+        readOnly 
+      />
 
       <div className="form-group mb-3">
         <p style={{ color: "red", fontWeight: "bold" }}>
@@ -17,20 +32,23 @@ export default function AssignmentEditor() {
           rows={10}
           className="form-control"
           style={{ borderColor: "lightgray" }}
-        >
-          Write the algorithm of Binary Search Tree.
-        </textarea>
+          defaultValue={assignment.description} 
+        />
       </div>
-
 
       <div className="mb-3">
         <label htmlFor="wd-points"><b>Points</b></label>
-        <input id="wd-points" value={100} className="form-control mb-3" />
+        <input 
+          id="wd-points" 
+          value={assignment.points} // Use points from the assignment
+          className="form-control mb-3" 
+          readOnly // Make this editable if needed
+        />
       </div>
 
       <div className="mb-3">
         <label htmlFor="wd-group"><b>Assignment Group</b></label>
-        <select id="wd-group" className="form-control">
+        <select id="wd-group" className="form-control" defaultValue={assignment.assignmentGroup}>
           <option value="ASSIGNMENTS">Assignments</option>
           <option value="QUIZZES">Quizzes</option>
           <option value="PROJECTS">Projects</option>
@@ -42,14 +60,15 @@ export default function AssignmentEditor() {
         <label htmlFor="wd-display-grade-as"><b>Display Grade as</b></label>
         <select id="wd-display-grade-as" className="form-control mb-3">
           <option value="PERCENTAGE">PERCENTAGE</option>
-          <option value="PERCENTAGE">NUMBER</option>
+          <option value="NUMBER">NUMBER</option>
         </select>
       </div>
+      
       <label htmlFor="wd-submission-type"><b>Submission Type</b></label>
       <div className="card mb-3">
         <div className="card-body">
           <div className="mb-3">
-            <select id="wd-submission-type" className="form-control">
+            <select id="wd-submission-type" className="form-control" defaultValue={assignment.submissionType}>
               <option value="Online">Online</option>
               <option value="In Person">On Paper</option>
             </select>
@@ -81,22 +100,21 @@ export default function AssignmentEditor() {
         </div>
       </div>
 
-
       <div className="row mb-3">
-        <div class="col-md-6">
-          <label for="wd-assign-to"><b>Assign to</b></label>
-          <div class="form-control" id="wd-assign-to">
-            <span class="badge bg-secondary me-1">
+        <div className="col-md-6">
+          <label htmlFor="wd-assign-to"><b>Assign to</b></label>
+          <div className="form-control" id="wd-assign-to">
+            <span className="badge bg-secondary me-1">
               Everyone
-              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
             </span>
-            <span class="badge bg-secondary me-1">
+            <span className="badge bg-secondary me-1">
               Students
-              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
             </span>
-            <span class="badge bg-secondary me-1">
+            <span className="badge bg-secondary me-1">
               Admins
-              <button type="button" class="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
+              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
             </span>
           </div>
         </div>
@@ -108,7 +126,7 @@ export default function AssignmentEditor() {
               type="date"
               name="wd-due-date"
               id="wd-due-date"
-              value="2024-05-13"
+              value={assignment.due} 
               className="form-control"
             />
           </div>
@@ -123,10 +141,9 @@ export default function AssignmentEditor() {
               type="date"
               name="wd-available-from"
               id="wd-available-from"
-              value="2024-05-06"
+              value={assignment.notAvailableUntil} 
               className="form-control"
             />
-            
           </div>
         </div>
 
@@ -137,10 +154,9 @@ export default function AssignmentEditor() {
               type="date"
               name="wd-available-until"
               id="wd-available-until"
-              value="2024-06-25"
+              value={assignment.due} 
               className="form-control"
             />
-
           </div>
         </div>
       </div>
