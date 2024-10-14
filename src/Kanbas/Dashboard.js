@@ -11,13 +11,18 @@ export default function Dashboard() {
           {courses.map((course) => (
             <div className="wd-dashboard-course col" style={{ width: "300px" }}>
               <div className="card rounded-3 overflow-hidden">
-                <Link to={`/Kanbas/Courses/${course._id}/Home`}
+                <Link to={course.LinkTo}
                       className="wd-dashboard-course-link text-decoration-none text-dark" >
-                  <img src="/images/SE.webp" alt="" width="100%" height={160} />
+                  <img src={course.imagePath} alt={course.name} width="100%" height={160} />
                   <div className="card-body">
                     <h5 className="wd-dashboard-course-title card-title">
                       {course.name} </h5>
-                    <p className="wd-dashboard-course-title card-text overflow-y-hidden" style={{ maxHeight: 100 }}>
+                    <p className="wd-dashboard-course-title card-text" style={{
+                      maxHeight: 100,
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis'
+                    }}>
                       {course.description} </p>
                     <button className="btn btn-primary"> Go </button>
                   </div>
@@ -28,5 +33,5 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-);}
-
+  );
+}
