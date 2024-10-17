@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
 import { assignments } from "../../Database"; 
+import { Link } from "react-router-dom";
 
 export default function AssignmentEditor() {
-  const { aid } = useParams();
+  const { cid,aid } = useParams();
   const assignment = assignments.find((assignment) => assignment._id === aid);
 
   if (!assignment) {
@@ -164,8 +165,10 @@ export default function AssignmentEditor() {
       <hr />
 
       <div className="d-flex justify-content-end">
+      <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
         <button type="button" className="btn btn-secondary me-2">Cancel</button>
         <button type="button" className="btn btn-success">Save</button>
+        </Link>
       </div>
     </div>
   );

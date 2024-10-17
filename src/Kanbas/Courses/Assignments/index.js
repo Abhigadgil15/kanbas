@@ -1,81 +1,56 @@
-import { BsGripVertical } from "react-icons/bs";
-import { FaRegEdit } from "react-icons/fa";
-import * as db from "../../Database"; // Ensure this imports your updated JSON with dates
-import { useParams } from "react-router";
-import { IoEllipsisVertical } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa"; 
-import { MdSearch } from "react-icons/md"; 
+import { BsGripVertical} from "react-icons/bs";
+import AssignmentSearch from "./AssignmentSearch";
+import AssignmentControlButtons from "./AssignmentControlButton";
+import { RiArrowDownSFill } from "react-icons/ri";
+import { MdOutlineAssignment } from "react-icons/md";
 import LessonControlButtons from "../Modules/LessonControlButton";
+import { assignments } from "../../Database";
+import { useParams } from "react-router";
 
 export default function Assignments() {
   const { cid } = useParams();
-  const assignments = db.assignments;
   return (
-    <div>
-      <div className="d-flex align-items-center mb-3">
-        <div className="input-group flex-grow-1 me-3">
-          <input
-            id="wd-search-assignment"
-            placeholder="Search for Assignments"
-            className="form-control"
-          />
-          <span className="input-group-text">
-            <MdSearch />
-          </span>
-        </div>
-        <button
-          id="wd-add-assignment-group"
-          className="btn btn-transparent me-2" 
-        >
-          <FaPlus /> Group
-        </button>
-        <button
-          id="wd-add-assignment"
-          className="btn btn-danger" // Red Assignments button
-        >
-          <FaPlus /> Assignment
-        </button>
-      </div>
-      <div className="card" style={{ height: 'auto', padding: '10px' }}>
-        <div className="card-body p-2">
-          <h3 id="wd-assignments-title" className="d-flex justify-content-between align-items-center fs-5 mb-2">
-            <div className="d-flex align-items-center">
-              <BsGripVertical /> <span className="ms-2">ASSIGNMENTS</span> {/* Added margin for spacing */}
-            </div>
-            <div className="d-flex align-items-center">
-              <span className="badge bg-light text-dark border rounded-pill me-2">40% of Total</span>
-              <button className="btn btn-secondary rounded-pill">
-                <FaPlus />
-              </button>
-              <IoEllipsisVertical className="fs-4" />
-            </div>
-          </h3>
-        </div>
-      </div>
-      <ul id="wd-assignment-list" className="list-group rounded-0">
-        {assignments
-          .filter((assignment) => assignment.course === cid)
-          .map((assignment) => (
-            <li key={assignment._id} className="wd-assignment-list-item list-group-item p-3 border-gray d-flex align-items-start">
+    <div className="me-3">
+      <AssignmentSearch />
+      <br />
+      <ul id="wd-assignments" className="list-group rounded-0">
+        <li className="wd-assignment list-group-item p-0 mb-5 fs-5">
+          <div className="d-flex align-items-center justify-content-between wd-assignments-title p-3 ps-2 bg-secondary">
+            <div>
               <BsGripVertical className="me-2 fs-3" />
-              <FaRegEdit className="text-success me-2 ms-2 mt-1" />
-              <div className="flex-grow-1">
-                <a
-                  className="wd-assignment-link"
-                  href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
-                >
-                  {assignment._id} - {assignment.title}
-                </a>
-                <br />
-                <span className="text-red" style={{ marginLeft: '35px' }}>
-                  Multiple Modules
-                </span>{" "}
-                | <b>Not available until</b> {assignment.notAvailableUntil} |{" "}
-                <b>Due</b> {assignment.due} | 100 pts
-                <LessonControlButtons />
-              </div>
-            </li>
-          ))}
+              <RiArrowDownSFill className="me-2" />
+              <b>ASSIGNMENTS</b>{" "}
+            </div>
+            <AssignmentControlButtons />
+          </div>
+          <ul className="wd-assignment-list list-group rounded-0">
+            {assignments
+              .filter((assignment) => assignment.course === cid)
+              .map((assignment) => (
+                <li className="wd-assignment-list-item list-group-item p-3 ps-2">
+                  <div className="d-flex align-items-center">
+                    <BsGripVertical className="me-2 fs-3" />
+                    <MdOutlineAssignment className="me-3 text-success" />
+                    <span>
+                      <a
+                        className="wd-assignment-link text-dark text-decoration-none fw-bold"
+                        href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                      >
+                        {assignment.title}
+                      </a>
+                      <br />
+                      <span className="text-danger">Multiple Modules</span> |
+                      <b> Not available until</b> {assignment.availableFrom} |{" "}
+                      <b>Due</b> {assignment.dueDate} | {assignment.points} pts
+                    </span>
+                    <span className="ms-auto">
+                      <LessonControlButtons />
+                    </span>
+                  </div>
+                </li>
+              ))}
+          </ul>
+        </li>
       </ul>
     </div>
   );

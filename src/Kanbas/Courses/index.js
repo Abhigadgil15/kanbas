@@ -15,7 +15,9 @@ export default function Courses() {
   const course = courses.find((course) => course._id === cid);
   return (
     <div id="wd-courses">
-      <h2 className="text-danger"> {course && course.name} &gt; {pathname.split("/")[4]}</h2>
+      <h2 className="text-danger"> {course && course.name} &gt; {pathname.split("/")[4]}
+      <></>{pathname.split("/")[5] && <>&gt; {pathname.split("/")[5]}</>}
+      </h2>
       <FaAlignJustify className="me-4 fs-4 mb-1" />
       <hr />
       <div className="d-flex">
