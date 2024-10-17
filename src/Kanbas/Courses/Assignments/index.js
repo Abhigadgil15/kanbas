@@ -10,7 +10,6 @@ import LessonControlButtons from "../Modules/LessonControlButton";
 export default function Assignments() {
   const { cid } = useParams();
   const assignments = db.assignments;
-  console.log(cid)
   return (
     <div>
       <div className="d-flex align-items-center mb-3">

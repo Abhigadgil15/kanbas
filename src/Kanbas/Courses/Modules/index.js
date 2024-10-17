@@ -11,7 +11,7 @@ export default function Modules() {
 
   return (
     <div>
-      <ModulesControls /><br /><br /><br />
+      <ModulesControls /><br /><br />
     <div className="wd-modules-container">
       <ul id="wd-modules" className="list-group rounded-0">
         {modules
