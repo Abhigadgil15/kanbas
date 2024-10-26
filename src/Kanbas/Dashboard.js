@@ -26,9 +26,9 @@ export default function Dashboard({
           Update
         </button>
       </h5><br />
-      <input defaultValue={course.name} className="form-control mb-2"
+      <input value={course.name} className="form-control mb-2"
         onChange={(e) => setCourse({ ...course, name: e.target.value })} />
-      <textarea defaultValue={course.description} className="form-control"
+      <textarea value={course.description} className="form-control"
         onChange={(e) => setCourse({ ...course, description: e.target.value })} />
       <hr />
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
