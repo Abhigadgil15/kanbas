@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import * as db from "../../Database";
+import { useState } from "react";
 import { BsGripVertical } from "react-icons/bs"; // Ensure you have react-icons installed
 import ModuleControlButtons from "./ModuleControlButton";
 import ModulesControls from "./ModulesControls"
@@ -7,7 +8,8 @@ import LessonControlButtons from "./LessonControlButton"; // Import your LessonC
 
 export default function Modules() {
   const { cid } = useParams();
-  const modules = db.modules;
+  const [modules, setModules] = useState(db.modules);
+  // const modules = db.modules;
 
   return (
     <div>
