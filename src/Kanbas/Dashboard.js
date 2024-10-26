@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import * as db from './Database';
 import React, { useState } from "react";
 
 export default function Dashboard({
@@ -10,6 +11,8 @@ export default function Dashboard({
   deleteCourse,
   updateCourse,
 }) {
+  const { currentUser } = useSelector((state) => state.accountReducer);
+  const { enrollments } = db;
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
@@ -32,44 +35,45 @@ export default function Dashboard({
       <hr />
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {courses.map((course) => (
-            <div key={course._id} className="wd-dashboard-course col" style={{ width: "300px" }}>
-              <div className="card rounded-3 overflow-hidden">
-                <Link to={`/Kanbas/Courses/${course._id}/Home`} className="wd-dashboard-course-link text-decoration-none text-dark">
-                  <img src={course.imagePath} alt={course.name} width="100%" height={160} />
-                  <div className="card-body">
-                    <h5 className="wd-dashboard-course-title card-title">{course.name}</h5>
-                    <p className="wd-dashboard-course-title card-text" style={{
-                      maxHeight: 100,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis'
-                    }}>
-                      {course.description}
-                    </p>
-                    <button className="btn btn-primary"> Go </button>
-                    <button id="wd-edit-course-click"
-                      onClick={(event) => {
+          {courses
+            .map((course) => (
+              <div key={course._id} className="wd-dashboard-course col" style={{ width: "300px" }}>
+                <div className="card rounded-3 overflow-hidden">
+                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="wd-dashboard-course-link text-decoration-none text-dark">
+                    <img src={course.imagePath} alt={course.name} width="100%" height={160} />
+                    <div className="card-body">
+                      <h5 className="wd-dashboard-course-title card-title">{course.name}</h5>
+                      <p className="wd-dashboard-course-title card-text" style={{
+                        maxHeight: 100,
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                      }}>
+                        {course.description}
+                      </p>
+                      <button className="btn btn-primary"> Go </button>
+                      <button id="wd-edit-course-click"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          setCourse(course);
+                        }}
+                        className="btn btn-warning me-2 float-end" >
+                        Edit
+                      </button>
+
+
+                      <button onClick={(event) => {
                         event.preventDefault();
-                        setCourse(course);
-                      }}
-                      className="btn btn-warning me-2 float-end" >
-                      Edit
-                    </button>
-
-
-                    <button onClick={(event) => {
-                      event.preventDefault();
-                      deleteCourse(course._id);
-                    }} className="btn btn-danger float-end"
-                      id="wd-delete-course-click">
-                      Delete
-                    </button>
-                  </div>
-                </Link>
+                        deleteCourse(course._id);
+                      }} className="btn btn-danger float-end"
+                        id="wd-delete-course-click">
+                        Delete
+                      </button>
+                    </div>
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
