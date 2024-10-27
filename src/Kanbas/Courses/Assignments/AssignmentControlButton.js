@@ -1,7 +1,7 @@
 import { IoEllipsisVertical } from "react-icons/io5";
 import { BsPlusLg } from "react-icons/bs";
 
-export default function ModuleControlButtons() {
+export default function AssignmentControlButtons() {
   return (
     <div>
       <span

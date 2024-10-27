@@ -26,7 +26,6 @@ export default function Lab4() {
       <StringStateVariables/>
       <ParentStateComponent/>
       <ObjectStateVariable/>
-
       <ReduxExamples/>
     </div>
 );}

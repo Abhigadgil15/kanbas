@@ -1,55 +1,114 @@
 import { useParams } from "react-router";
-import { assignments } from "../../Database"; 
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addAssignment, updateAssignment } from "./reducer"; // Adjust the import path
 
 export default function AssignmentEditor() {
-  const { cid,aid } = useParams();
-  const assignment = assignments.find((assignment) => assignment._id === aid);
+  const { cid, aid } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  if (!assignment) {
-    return <div>Assignment not found</div>;
-  }
+  const assignments = useSelector((state) => state.assignmentReducer.assignments);
+
+  // Check if editing an existing assignment
+  const existingAssignment = assignments.find((assignment) => assignment._id === aid);
+
+  // Initialize formData
+  const [formData, setFormData] = useState({
+    _id: existingAssignment ? existingAssignment._id : `A00${assignments.length + 1}`,
+    title: existingAssignment ? existingAssignment.title : "",
+    description: existingAssignment ? existingAssignment.description : "",
+    points: existingAssignment ? existingAssignment.points : 0,
+    assignmentGroup: existingAssignment ? existingAssignment.assignmentGroup : "ASSIGNMENTS",
+    submissionType: existingAssignment ? existingAssignment.submissionType : "Online",
+    due: existingAssignment ? existingAssignment.due : "",
+    notAvailableUntil: existingAssignment ? existingAssignment.notAvailableUntil : "",
+  });
+
+  // Update formData on change
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  // Handle save action
+  const handleSave = () => {
+    if (!formData.title || !formData.description || !formData.points || !formData.due) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (existingAssignment) {
+      // If editing, dispatch updateAssignment
+      dispatch(updateAssignment({ ...formData, course: cid }));
+    } else {
+      // If adding new, dispatch addAssignment
+      dispatch(addAssignment({ ...formData, course: cid }));
+    }
+
+    console.log(formData);
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
+  };
+
+  // Sync form data when existingAssignment changes
+  useEffect(() => {
+    if (existingAssignment) {
+      setFormData(existingAssignment);
+    }
+  }, [existingAssignment]);
 
   return (
     <div id="wd-assignments-editor" className="p-3">
       <b>
-        <label htmlFor="wd-name">Assignment Name</label>
+        <label htmlFor="title">Assignment Name</label>
       </b>
       <br />
       <input 
-        id="wd-name" 
-        value={assignment.title} 
+        id="title" 
+        value={formData.title} 
         className="form-control mb-3" 
-        readOnly 
+        onChange={handleChange} 
+        required 
       />
 
       <div className="form-group mb-3">
-        <p style={{ color: "red", fontWeight: "bold" }}>
-          This assignment is available online
-        </p>
+        <p style={{ color: "red", fontWeight: "bold" }}>This assignment is available online</p>
         <textarea
-          id="wd-description"
+          id="description"
           cols={30}
           rows={10}
           className="form-control"
           style={{ borderColor: "lightgray" }}
-          defaultValue={assignment.description} 
+          value={formData.description} 
+          onChange={handleChange} 
+          required 
         />
       </div>
 
       <div className="mb-3">
-        <label htmlFor="wd-points"><b>Points</b></label>
+        <label htmlFor="points"><b>Points</b></label>
         <input 
-          id="wd-points" 
-          value={assignment.points} // Use points from the assignment
+          id="points" 
+          type="number" 
+          value={formData.points} 
           className="form-control mb-3" 
-          readOnly // Make this editable if needed
+          onChange={handleChange} 
+          required 
         />
       </div>
 
       <div className="mb-3">
-        <label htmlFor="wd-group"><b>Assignment Group</b></label>
-        <select id="wd-group" className="form-control" defaultValue={assignment.assignmentGroup}>
+        <label htmlFor="assignmentGroup"><b>Assignment Group</b></label>
+        <select 
+          id="assignmentGroup" 
+          className="form-control" 
+          value={formData.assignmentGroup} 
+          onChange={handleChange} 
+        >
           <option value="ASSIGNMENTS">Assignments</option>
           <option value="QUIZZES">Quizzes</option>
           <option value="PROJECTS">Projects</option>
@@ -57,118 +116,48 @@ export default function AssignmentEditor() {
         </select>
       </div>
 
-      <div className="mb-3">
-        <label htmlFor="wd-display-grade-as"><b>Display Grade as</b></label>
-        <select id="wd-display-grade-as" className="form-control mb-3">
-          <option value="PERCENTAGE">PERCENTAGE</option>
-          <option value="NUMBER">NUMBER</option>
-        </select>
-      </div>
+      <label htmlFor="submissionType"><b>Submission Type</b></label>
+      <select 
+        id="submissionType" 
+        className="form-control mb-3" 
+        value={formData.submissionType} 
+        onChange={handleChange} 
+      >
+        <option value="Online">Online</option>
+        <option value="In Person">On Paper</option>
+      </select>
       
-      <label htmlFor="wd-submission-type"><b>Submission Type</b></label>
-      <div className="card mb-3">
-        <div className="card-body">
-          <div className="mb-3">
-            <select id="wd-submission-type" className="form-control" defaultValue={assignment.submissionType}>
-              <option value="Online">Online</option>
-              <option value="In Person">On Paper</option>
-            </select>
-          </div>
-
-          <div className="mb-3">
-            <b>Online Entry Options</b>
-            <div className="form-check">
-              <input type="checkbox" id="wd-text-entry" className="form-check-input" />
-              <label htmlFor="wd-text-entry" className="form-check-label">Text Entry</label>
-            </div>
-            <div className="form-check">
-              <input type="checkbox" id="wd-website-url" className="form-check-input" />
-              <label htmlFor="wd-website-url" className="form-check-label">Website URL</label>
-            </div>
-            <div className="form-check">
-              <input type="checkbox" id="wd-media-recordings" className="form-check-input" />
-              <label htmlFor="wd-media-recordings" className="form-check-label">Media Recordings</label>
-            </div>
-            <div className="form-check">
-              <input type="checkbox" id="wd-student-annotation" className="form-check-input" />
-              <label htmlFor="wd-student-annotation" className="form-check-label">Student Annotation</label>
-            </div>
-            <div className="form-check">
-              <input type="checkbox" id="wd-file-upload" className="form-check-input" />
-              <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="row mb-3">
         <div className="col-md-6">
-          <label htmlFor="wd-assign-to"><b>Assign to</b></label>
-          <div className="form-control" id="wd-assign-to">
-            <span className="badge bg-secondary me-1">
-              Everyone
-              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
-            </span>
-            <span className="badge bg-secondary me-1">
-              Students
-              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
-            </span>
-            <span className="badge bg-secondary me-1">
-              Admins
-              <button type="button" className="btn-close btn-close-white btn-sm ms-1" aria-label="Close"></button>
-            </span>
-          </div>
+          <label htmlFor="due"><b>Due</b></label>
+          <input
+            type="date"
+            id="due"
+            value={formData.due || ''}
+            className="form-control"
+            onChange={handleChange}
+          />
         </div>
 
         <div className="col-md-6">
-          <label htmlFor="wd-due-date"><b>Due</b></label>
-          <div className="input-group">
-            <input
-              type="date"
-              name="wd-due-date"
-              id="wd-due-date"
-              value={assignment.due} 
-              className="form-control"
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="row mb-3">
-        <div className="col-md-6">
-          <label htmlFor="wd-available-from"><b>Available from</b></label>
-          <div className="input-group"> 
-            <input
-              type="date"
-              name="wd-available-from"
-              id="wd-available-from"
-              value={assignment.notAvailableUntil} 
-              className="form-control"
-            />
-          </div>
-        </div>
-
-        <div className="col-md-6">
-          <label htmlFor="wd-available-until"><b>Until</b></label>
-          <div className="input-group">
-            <input
-              type="date"
-              name="wd-available-until"
-              id="wd-available-until"
-              value={assignment.due} 
-              className="form-control"
-            />
-          </div>
+          <label htmlFor="notAvailableUntil"><b>Available Until</b></label>
+          <input
+            type="date"
+            id="notAvailableUntil"
+            value={formData.notAvailableUntil || ''}
+            className="form-control"
+            onChange={handleChange}
+          />
         </div>
       </div>
 
       <hr />
 
       <div className="d-flex justify-content-end">
-      <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
-        <button type="button" className="btn btn-secondary me-2">Cancel</button>
-        <button type="button" className="btn btn-success">Save</button>
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`}>
+          <button type="button" className="btn btn-secondary me-2">Cancel</button>
         </Link>
+        <button type="button" className="btn btn-success" onClick={handleSave}>Save</button>
       </div>
     </div>
   );
