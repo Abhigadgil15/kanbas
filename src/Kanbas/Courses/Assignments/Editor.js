@@ -12,7 +12,7 @@ export default function AssignmentEditor() {
   const assignments = useSelector((state) => state.assignmentReducer.assignments);
 
   // Check if editing an existing assignment
-  const existingAssignment = assignments.find((assignment) => assignment._id === aid);
+  let existingAssignment = assignments.find((assignment) => assignment._id === aid) || null;
 
   // Initialize formData
   const [formData, setFormData] = useState({
@@ -34,6 +34,24 @@ export default function AssignmentEditor() {
     }));
   };
 
+  // Reset formData when `aid` changes or if there's no existingAssignment match
+  useEffect(() => {
+    if (!existingAssignment) {
+      setFormData({
+        _id: `A00${assignments.length + 1}`, // Generate a new ID for new assignments
+        title: "",
+        description: "",
+        points: 0,
+        assignmentGroup: "ASSIGNMENTS",
+        submissionType: "Online",
+        due: "",
+        notAvailableUntil: "",
+      });
+    } else {
+      setFormData(existingAssignment); // Load data for existing assignments
+    }
+  }, [existingAssignment, aid, assignments.length]);
+
   // Handle save action
   const handleSave = () => {
     if (!formData.title || !formData.description || !formData.points || !formData.due) {
@@ -49,16 +67,8 @@ export default function AssignmentEditor() {
       dispatch(addAssignment({ ...formData, course: cid }));
     }
 
-    console.log(formData);
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
-
-  // Sync form data when existingAssignment changes
-  useEffect(() => {
-    if (existingAssignment) {
-      setFormData(existingAssignment);
-    }
-  }, [existingAssignment]);
 
   return (
     <div id="wd-assignments-editor" className="p-3">

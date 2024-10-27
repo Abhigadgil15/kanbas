@@ -6,8 +6,8 @@ import * as db from "../Database";
 
 export default function Signin() {
   const [credentials, setCredentials] = useState({
-    username: "thor_odinson",
-    password: "mjolnir123"
+    username: "iron_man",
+    password: "stark123"
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
