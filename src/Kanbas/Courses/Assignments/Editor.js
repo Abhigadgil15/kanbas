@@ -26,7 +26,6 @@ export default function AssignmentEditor() {
     notAvailableUntil: existingAssignment ? existingAssignment.notAvailableUntil : "",
   });
 
-  // Update formData on change
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({

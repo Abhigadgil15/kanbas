@@ -13,10 +13,10 @@ const assignmentsSlice = createSlice({
       const courseAssignments = state.assignments.filter(
         (a) => a.course === assignment.course
       );
-      
+
       const nextId = courseAssignments.length > 0 
         ? `A00${courseAssignments.length + 1}` 
-        : "A001";
+        : `A00${state.assignments.length + 1}`;
       const newAssignment = {
         _id: nextId,
         title: assignment.title,
