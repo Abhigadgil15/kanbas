@@ -5,37 +5,47 @@ const initialState = {
   assignments: dbAssignments, // Initial assignments from assignments.json
 };
 
-// Helper function to reassign IDs in sequence for a course
-const reassignIds = (assignments, course) => {
-  let counter = 1;
-  return assignments
-    .filter((a) => a.course === course)
-    .map((assignment) => ({
-      ...assignment,
-      _id: `A00${counter++}`,
-    }));
-};
-
 const assignmentsSlice = createSlice({
   name: "assignments",
   initialState,
   reducers: {
     addAssignment: (state, { payload: assignment }) => {
+      const courseAssignments = state.assignments.filter(
+        (a) => a.course === assignment.course
+      );
+
+      let nextId;
+
+      if (courseAssignments.length > 0) {
+        // For existing courses, find the highest ID number
+        const highestId = Math.max(
+          ...courseAssignments.map((a) => parseInt(a._id.slice(1), 10))
+        );
+        nextId = `A${String(highestId + 1).padStart(3, "0")}`;
+      } else {
+        // For new courses, start IDs at 1001
+        const courseCount = new Set(state.assignments.map(a => a.course)).size; // Count unique courses
+        nextId = `A${String(courseCount * 100 + 1).padStart(3, "0")}`; // Generate ID starting from 1001
+      }
+
+      // Create the new assignment
       const newAssignment = {
-        ...assignment,
-        _id: `A00${state.assignments.filter(a => a.course === assignment.course).length + 1}`,
+        _id: nextId,
+        title: assignment.title,
+        description: assignment.description,
+        course: assignment.course,
+        notAvailableUntil: assignment.notAvailableUntil,
+        due: assignment.due,
+        points: assignment.points,
+        submissionType: assignment.submissionType,
+        assignmentGroup: assignment.assignmentGroup,
       };
-      state.assignments = [...state.assignments, newAssignment];
+      state.assignments.push(newAssignment);
     },
     deleteAssignment: (state, { payload: assignmentId }) => {
-      const deletedAssignment = state.assignments.find((a) => a._id === assignmentId);
-      if (deletedAssignment) {
-        state.assignments = state.assignments.filter((a) => a._id !== assignmentId);
-        state.assignments = [
-          ...state.assignments.filter((a) => a.course !== deletedAssignment.course),
-          ...reassignIds(state.assignments, deletedAssignment.course),
-        ];
-      }
+      state.assignments = state.assignments.filter(
+        (a) => a._id !== assignmentId
+      );
     },
     updateAssignment: (state, { payload: assignment }) => {
       state.assignments = state.assignments.map((m) =>
