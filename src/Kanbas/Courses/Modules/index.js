@@ -17,7 +17,6 @@ export default function Modules() {
   return (
     <div>
       {/* Show ModulesControls only for faculty */}
-      {currentUser.role === "FACULTY" && (
         <ModulesControls
           setModuleName={setModuleName}
           moduleName={moduleName}
@@ -26,7 +25,7 @@ export default function Modules() {
             setModuleName("");
           }}
         />
-      )}
+
       <br /><br />
       <div className="wd-modules-container">
         <ul id="wd-modules" className="list-group rounded-0">
