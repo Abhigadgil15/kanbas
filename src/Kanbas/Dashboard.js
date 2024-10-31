@@ -44,6 +44,14 @@ export default function Dashboard({
     }
   };
 
+  // const handleGoClick = (courseId, isEnrolled) => {
+  //   if (isEnrolled) {
+  //     navigate(`/Kanbas/Courses/${courseId}/Home`);
+  //   } else {
+  //     alert("You must enroll in the course first.");
+  //   }
+  // };
+
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
@@ -99,7 +107,10 @@ export default function Dashboard({
                   </div>
                 </Link>
                 <div className="d-flex justify-content-between align-items-center p-3">
-                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary me-2">
+                  <Link
+                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    className="btn btn-primary me-2"
+                  >
                     Go
                   </Link>
 

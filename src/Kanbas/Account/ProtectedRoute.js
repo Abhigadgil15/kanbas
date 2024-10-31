@@ -1,14 +1,31 @@
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import * as db from '../Database'; // Import your database or state management for enrollments
+import { Navigate, useLocation } from "react-router-dom";
+import { useParams } from "react-router";
+import { useEffect } from "react";
 
-export default function ProtectedRoute({ children, courseId }) {
+export default function ProtectedRoute({ children }) {
   const { currentUser } = useSelector((state) => state.accountReducer);
-  const { enrollments } = db; // Assume enrollments come from your state or database
+  const enrollments = useSelector((state) => state.enrollmentReducer.enrollments);
+  const { cid: courseId } = useParams();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if the user is a student and the courseId is provided
+    if (currentUser?.role === "STUDENT" && courseId) {
+      const isEnrolled = enrollments.some(
+        (enrollment) => enrollment.user === currentUser._id && enrollment.course === courseId
+      );
+
+      // If the student is not enrolled in the course
+      if (!isEnrolled) {
+        alert("You must enroll in the course first");
+      }
+    }
+  }, [currentUser, courseId, enrollments]);
 
   // Check if the user is logged in
   if (!currentUser) {
-    return <Navigate to="/Kanbas/Account/Signin" />;
+    return <Navigate to="/Kanbas/Account/Signin" replace state={{ from: location }} />;
   }
 
   // If the user is a student and the courseId is provided, check enrollment
@@ -17,9 +34,9 @@ export default function ProtectedRoute({ children, courseId }) {
       (enrollment) => enrollment.user === currentUser._id && enrollment.course === courseId
     );
 
-    // If the student is not enrolled in the course, redirect them
+    // If the student is not enrolled in the course
     if (!isEnrolled) {
-      return <Navigate to="/Kanbas/Dashboard" />; // Or another route that makes sense
+      return <Navigate to="/Kanbas/Dashboard" replace />;
     }
   }
 
