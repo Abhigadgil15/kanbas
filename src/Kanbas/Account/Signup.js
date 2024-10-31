@@ -15,18 +15,18 @@ export default function Signup() {
         type="password" 
       />
       <input 
-        className="form-control mb-2" 
+        className="form-control" 
         placeholder="verify password" 
         type="password" 
       /><br/>
       <Link 
-        className="btn btn-primary w-100 mb-2" 
+        className="btn btn-primary w-100" 
         to="/Kanbas/Account/Profile"
       > 
         Sign up 
       </Link>
       <Link 
-        className="btn btn-link" 
+        className="btn btn-primary w-100 mt-2" 
         to="/Kanbas/Account/Signin"
       >
         Sign in

@@ -125,17 +125,68 @@ export default function AssignmentEditor() {
         </select>
       </div>
 
-      <label htmlFor="submissionType"><b>Submission Type</b></label>
-      <select 
-        id="submissionType" 
-        className="form-control mb-3" 
-        value={formData.submissionType} 
-        onChange={handleChange} 
-      >
-        <option value="Online">Online</option>
-        <option value="In Person">On Paper</option>
-      </select>
-      
+      <div className="card mb-3">
+        <div className="card-body">
+          <label htmlFor="submissionType"><b>Submission Type</b></label>
+          <select 
+            id="submissionType" 
+            className="form-control mb-3" 
+            value={formData.submissionType} 
+            onChange={handleChange} 
+          >
+            <option value="Online">Online</option>
+            <option value="In Person">On Paper</option>
+          </select>
+
+          {formData.submissionType === "Online" && (
+            <div>
+              <h6 className="card-title">Online Entry Options</h6>
+              <div className="form-check">
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id="textEntry" 
+                  defaultChecked 
+                />
+                <label className="form-check-label" htmlFor="textEntry">
+                  Text Entry
+                </label>
+              </div>
+              <div className="form-check">
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id="websiteURL" 
+                />
+                <label className="form-check-label" htmlFor="websiteURL">
+                  Website URL
+                </label>
+              </div>
+              <div className="form-check">
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id="mediaRecordings" 
+                />
+                <label className="form-check-label" htmlFor="mediaRecordings">
+                  Media Recordings
+                </label>
+              </div>
+              <div className="form-check">
+                <input 
+                  className="form-check-input" 
+                  type="checkbox" 
+                  id="fileUpload" 
+                />
+                <label className="form-check-label" htmlFor="fileUpload">
+                  File Uploads
+                </label>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="row mb-3">
         <div className="col-md-6">
           <label htmlFor="due"><b>Due</b></label>
@@ -145,6 +196,7 @@ export default function AssignmentEditor() {
             value={formData.due || ''}
             className="form-control"
             onChange={handleChange}
+            required
           />
         </div>
 
