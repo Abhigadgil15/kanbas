@@ -25,23 +25,17 @@ const assignment = {
         res.json(assignment);
       });
 
-      app.get("/lab5/assignment/title/:newTitle", (req, res) => {
-        const { newTitle } = req.params;
-        assignment.title = newTitle;
-        res.json(assignment);
-      });
-
       app.get("/lab5/assignment/score/:newScore", (req, res) => {
         const { newScore } = req.params;
         assignment.score = newScore;
-        res.json(module);
+        res.json(assignment);
       });
 
 
       app.get("/lab5/assignment/completed/:newCompleted", (req, res) => {
         const { newCompleted } = req.params;
-        module.completed = newCompleted;
-        res.json(module);
+        assignment.completed = newCompleted;
+        res.json(assignment);
       });
 
     
