@@ -4,15 +4,22 @@ import GreenCheckMark from "../Modules/GreenCheckMark";
 import { deleteAssignment } from "./reducer";
 import { FaTrash } from "react-icons/fa";
 import { useDispatch } from "react-redux";
+import * as assignmentClient from "./client";
 
 export default function LessonControlButtons({ assignmentId }) {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
+    await assignmentClient.deleteAssignment(assignmentId); 
     dispatch(deleteAssignment(assignmentId)); // Dispatch deleteAssignment with the ID
     setShowModal(false); // Close the modal after deletion
   };
+
+  // const removeModule = async (moduleId) => {
+  //   await modulesClient.deleteModule(moduleId);
+  //   dispatch(deleteModule(moduleId));
+  // };
 
   return (
     <div className="float-end">
