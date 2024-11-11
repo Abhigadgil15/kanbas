@@ -6,9 +6,13 @@ export const deleteAssignment = async (assignmentId) => {
  return response.data;
 };
 
-
 export const updateAssignment = async (assignment) => {
     const { data } = await axios.put(`${ASSIGNMENT_API}/${assignment._id}`, assignment);
     return data;
   };
+
+//   export const updateModule = async (module) => {
+//     const { data } = await axios.put(`${MODULES_API}/${module._id}`, module);
+//     return data;
+//   };
   

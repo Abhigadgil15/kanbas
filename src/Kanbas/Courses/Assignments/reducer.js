@@ -35,8 +35,8 @@ const assignmentsSlice = createSlice({
       );
     },
     updateAssignment: (state, { payload: assignment }) => {
-      state.assignments = state.assignments.map((m) =>
-        m._id === assignment._id ? assignment : m
+      state.assignments = state.assignments.map((a) =>
+        a._id === assignment._id ? assignment : a
       );
     },
   },

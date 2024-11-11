@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAssignment, updateAssignment } from "./reducer"; // Adjust the import path
 import * as coursesClient from "../client";
 import { fetchAssignments } from "./reducer";
+import * as assignmentsClient from "./client";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
@@ -51,22 +52,27 @@ export default function AssignmentEditor() {
 
   // Reset formData when `aid` changes or if there's no existingAssignment match
   useEffect(() => {
-    if (!existingAssignment) {
-      setFormData({
-        _id: `A00${assignments.length + 1}`, // Generate a new ID for new assignments
-        title: "",
-        description: "",
-        points: 0,
-        assignmentGroup: "ASSIGNMENTS",
-        submissionType: "Online",
-        due: "",
-        notAvailableUntil: "",
-      });
+    if (existingAssignment) {
+        setFormData(existingAssignment); // Load existing assignment data
     } else {
-      setFormData(existingAssignment); // Load data for existing assignments
+        setFormData({
+            _id: `A00${assignments.length + 1}`, // New assignment ID
+            title: "",
+            description: "",
+            points: 0,
+            assignmentGroup: "ASSIGNMENTS",
+            submissionType: "Online",
+            due: "",
+            notAvailableUntil: "",
+        });
     }
-  }, [existingAssignment, aid, assignments.length]);
+}, [existingAssignment, aid, assignments.length]);
 
+
+  const saveAssignment = async (assignment) => {
+    await assignmentsClient.updateAssignment(assignment);
+    dispatch(updateAssignment(assignment));
+  };
   // Handle save action
   const handleSave = async () => {
     if (!formData.title || !formData.description || !formData.points || !formData.due) {
@@ -75,8 +81,7 @@ export default function AssignmentEditor() {
     }
 
     if (existingAssignment) {
-      // If editing, dispatch updateAssignment
-      dispatch(updateAssignment({ ...formData, course: cid }));
+      await saveAssignment({ ...formData, editing: false });;
     } else {
       // If adding new, dispatch addAssignment
       await handleAddAssignment();
