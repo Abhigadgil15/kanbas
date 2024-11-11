@@ -1,17 +1,36 @@
+import React, { useEffect } from "react";
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentSearch from "./AssignmentSearch";
 import AssignmentControlButtons from "./AssignmentControlButton";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { MdOutlineAssignment } from "react-icons/md";
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import IndividualAssignment from "./IndividualAssignment";
+import { setAssignments } from "./reducer";
+import * as coursesClient from "../client";
+import { fetchAssignments } from "./reducer";
 
 export default function Assignments() {
+  const dispatch = useDispatch();
   const { cid } = useParams();
   const { assignments } = useSelector((state) => state.assignmentReducer); 
   const { currentUser } = useSelector((state) => state.accountReducer); // Get currentUser from Redux
-  console.log(assignments); // Fetch assignments from Redux store
+    const fetchAllAssignments = async () => {
+    const assignments = await coursesClient.findAssignmentsForCourse(cid);
+    console.log(assignments); 
+    dispatch(setAssignments(assignments));
+  }
+
+
+
+  useEffect(() => {
+    fetchAllAssignments();
+  }, []);
+
+  // useEffect(() => {
+  //   dispatch(fetchAssignments(cid));
+  // }, [dispatch, cid]);
 
   return (
     <div className="me-3">
@@ -28,9 +47,7 @@ export default function Assignments() {
             <AssignmentControlButtons />
           </div>
           <ul className="wd-assignment-list list-group rounded-0">
-            {assignments
-              .filter((assignment) => assignment.course === cid)
-              .map((assignment) => (
+            {assignments.map((assignment) => (
                 <li key={assignment._id} className="wd-assignment-list-item list-group-item p-3 ps-2">
                   <div className="d-flex align-items-center">
                     <BsGripVertical className="me-2 fs-3" />

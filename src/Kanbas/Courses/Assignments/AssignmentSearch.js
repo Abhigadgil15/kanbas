@@ -2,16 +2,23 @@ import { BsPlusLg } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import IndividualAssignment from "./IndividualAssignment";
+import { setAssignments,addAssignment } from "./reducer";
+import * as coursesClient from "../client";
+import { useDispatch } from "react-redux";
 
 export default function AssignmentSearch() {
   const { currentUser } = useSelector((state) => state.accountReducer); 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { cid } = useParams();
 
   const handleAddAssignment = () => {
     // Navigate to the AssignmentEditor without an aid
     navigate(`/Kanbas/Courses/${cid}/Assignments/new`);
   };
+
+
 
   return (
     <div className="d-flex justify-content-between">

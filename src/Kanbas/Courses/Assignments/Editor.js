@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addAssignment, updateAssignment } from "./reducer"; // Adjust the import path
+import * as coursesClient from "../client";
+import { fetchAssignments } from "./reducer";
 
 export default function AssignmentEditor() {
   const { cid, aid } = useParams();
@@ -10,6 +12,19 @@ export default function AssignmentEditor() {
   const navigate = useNavigate();
 
   const assignments = useSelector((state) => state.assignmentReducer.assignments);
+
+  const handleAddAssignment = async () => {
+    if (!cid) return;
+    const newAssignment = { ...formData, course: cid };
+  
+    try {
+      const assignment = await coursesClient.createAssignmentForCourse(cid, newAssignment);
+      console.log(assignment);
+      dispatch(addAssignment(assignment));
+    } catch (error) {
+      console.error("Error adding assignment:", error);
+    }
+  };
 
   // Check if editing an existing assignment
   let existingAssignment = assignments.find((assignment) => assignment._id === aid) || null;
@@ -53,7 +68,7 @@ export default function AssignmentEditor() {
   }, [existingAssignment, aid, assignments.length]);
 
   // Handle save action
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!formData.title || !formData.description || !formData.points || !formData.due) {
       alert("Please fill in all required fields.");
       return;
@@ -64,7 +79,7 @@ export default function AssignmentEditor() {
       dispatch(updateAssignment({ ...formData, course: cid }));
     } else {
       // If adding new, dispatch addAssignment
-      dispatch(addAssignment({ ...formData, course: cid }));
+      await handleAddAssignment();
     }
 
     navigate(`/Kanbas/Courses/${cid}/Assignments`);

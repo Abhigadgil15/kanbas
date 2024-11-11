@@ -13,6 +13,7 @@ export default function Courses({ courses }) {
   const { pathname } = useLocation();
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
+  
   return (
     <div id="wd-courses">
       <h2 className="text-danger"> {course && course.name} &gt; {pathname.split("/")[4]}
