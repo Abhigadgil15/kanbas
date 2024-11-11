@@ -7,6 +7,7 @@ import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
 // import * as db from "./Database"; // Make sure this imports correctly
+
 import "./styles.css";
 import { Provider } from "react-redux";
 import ProtectedRoute from "./Account/ProtectedRoute";
@@ -41,13 +42,11 @@ export default function Kanbas() {
     description: "New Description"
   });
 
-  const addNewCourse = () => {
-    const newCourse = {
-      ...course,
-      _id: new Date().getTime().toString()
-    };
-    setCourses([...courses, { ...course, ...newCourse }]);
+  const addNewCourse = async () => {
+    const newCourse = await userClient.createCourse(course);
+    setCourses([ ...courses, newCourse ]);
   };
+
 
   const deleteCourse = (courseId) => {
     setCourses(courses.filter((course) => course._id !== courseId));
