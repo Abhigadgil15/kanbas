@@ -26,8 +26,9 @@ const assignmentsSlice = createSlice({
         submissionType: assignment.submissionType,
         assignmentGroup: assignment.assignmentGroup,
       };
-      state.assignments.push(newAssignment);
+      state.assignments = [...state.assignments, newAssignment];
     },
+  
     deleteAssignment: (state, { payload: assignmentId }) => {
       state.assignments = state.assignments.filter(
         (a) => a._id !== assignmentId
@@ -40,15 +41,6 @@ const assignmentsSlice = createSlice({
     },
   },
 });
-
-export const fetchAssignments = (cid) => async (dispatch) => {
-  try {
-    const assignments = await coursesClient.findAssignmentsForCourse(cid);
-    dispatch(setAssignments(assignments));
-  } catch (error) {
-    console.error("Error fetching assignments:", error);
-  }
-};
 
 export const { addAssignment, deleteAssignment, updateAssignment,setAssignments } = assignmentsSlice.actions;
 
