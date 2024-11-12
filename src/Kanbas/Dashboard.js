@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { enrollCourse, unenrollCourse } from './Enrollments/reducer';
+import * as coursesClient from "./Courses/client";
 
 export default function Dashboard({
-  courses,
   course,
   setCourse,
   addNewCourse,
@@ -13,21 +13,39 @@ export default function Dashboard({
 }) {
   const { currentUser } = useSelector((state) => state.accountReducer);
   const enrollments = useSelector((state) => state.enrollmentReducer.enrollments);
-  const [showAllCourses, setShowAllCourses] = useState(false);
+  
+  const [showAllCourses, setShowAllCourses] = useState(false);  // Initially set to false
+  const [fetchedCourses, setFetchedCourses] = useState([]);  // State to store fetched courses
   const dispatch = useDispatch();
 
-  const displayedCourses = currentUser.role === "FACULTY"
-    ? courses
-    : showAllCourses
-      ? courses
-      : courses.filter((course) =>
-        enrollments.some(
-          (enrollment) =>
-            enrollment.user === currentUser._id &&
-            enrollment.course === course._id
-        )
-      );
+  // Fetch all courses from the server
+  const fetchAllCourses = async () => {
+    try {
+      const courses = await coursesClient.fetchAllCourses();
+      setFetchedCourses(courses);  // Update the state with fetched courses
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    }
+  };
 
+  // Fetch enrolled courses initially
+  const enrolledCourses = fetchedCourses.filter((course) =>
+    enrollments.some(
+      (enrollment) =>
+        enrollment.user === currentUser._id && enrollment.course === course._id
+    )
+  );
+
+  // Effect to fetch all courses when "Show All Courses" is clicked
+  useEffect(() => {
+    if (showAllCourses) {
+      fetchAllCourses();
+    }
+  }, [showAllCourses]); // Trigger fetch when showAllCourses state changes
+
+  const displayedCourses = showAllCourses ? fetchedCourses : enrolledCourses;
+
+  // Handle the enrollment toggle (enroll or unenroll)
   const handleEnrollmentToggle = (courseId) => {
     const isEnrolled = enrollments.some(
       (enrollment) =>
@@ -44,13 +62,12 @@ export default function Dashboard({
     }
   };
 
-  // const handleGoClick = (courseId, isEnrolled) => {
-  //   if (isEnrolled) {
-  //     navigate(`/Kanbas/Courses/${courseId}/Home`);
-  //   } else {
-  //     alert("You must enroll in the course first.");
-  //   }
-  // };
+  // Load enrolled courses on initial render
+  useEffect(() => {
+    if (!showAllCourses) {
+      fetchAllCourses();  // Fetch all courses on initial load if the user is a student
+    }
+  }, []);  // Empty dependency array ensures this effect runs only once when the component mounts
 
   return (
     <div id="wd-dashboard">
