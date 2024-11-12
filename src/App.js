@@ -5,6 +5,7 @@ import store from "./Kanbas/store";
 import { Provider, useSelector } from "react-redux";
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 const App = () => {
+  console.log("Backend URL:", process.env.REACT_APP_REMOTE_SERVER);
   return (
     <HashRouter>
       <Provider store={store}>
