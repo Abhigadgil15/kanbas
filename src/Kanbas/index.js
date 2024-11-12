@@ -6,7 +6,6 @@ import Session from "./Account/Session";
 import Dashboard from "./Dashboard";
 import KanbasNavigation from "./Navigation";
 import Courses from "./Courses";
-// import * as db from "./Database"; // Make sure this imports correctly
 import * as courseClient from "./Courses/client";
 import "./styles.css";
 import { Provider } from "react-redux";

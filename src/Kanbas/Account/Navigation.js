@@ -1,39 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function AccountNavigation() {
   const { currentUser } = useSelector((state) => state.accountReducer);
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <div id="wd-account-navigation" className="wd list-group fs-5 rounded-0">
-      {/* Render Signin link only if there's no current user */}
+    <div id="wd-account-navigation" className="list-group wd fs-5 rounded-0">
       {!currentUser && (
         <Link
-          id="wd-course-home-link"
-          to={`/Kanbas/Account/Signin`}
-          className="list-group-item active border border-0"
+          to="/Kanbas/Account/Signin"
+          className={`list-group-item text-danger border border-0 ${isActive("/Kanbas/Account/Signin") ? "active" : ""}`}
         >
           Signin
         </Link>
       )}
-
-      {/* Render Signup link only if there's no current user */}
       {!currentUser && (
         <Link
-          id="wd-course-home-link"
-          to={`/Kanbas/Account/Signup`}
-          className="list-group-item text-danger border border-0"
+          to="/Kanbas/Account/Signup"
+          className={`list-group-item text-danger border border-0 ${isActive("/Kanbas/Account/Signup") ? "active" : ""}`}
         >
           Signup
         </Link>
       )}
-
-      {/* Render Profile link only if there's a current user */}
       {currentUser && (
         <Link
-          id="wd-course-home-link"
-          to={`/Kanbas/Account/Profile`}
-          className="list-group-item text-danger border border-0"
+          to="/Kanbas/Account/Profile"
+          className={`list-group-item text-danger border border-0 ${isActive("/Kanbas/Account/Profile") ? "active" : ""}`}
         >
           Profile
         </Link>

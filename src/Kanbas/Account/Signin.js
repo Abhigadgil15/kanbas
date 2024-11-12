@@ -2,13 +2,12 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentUser } from "./reducer";
 import { useDispatch } from "react-redux";
-import * as db from "../Database";
 import * as client from "./client";
 
 export default function Signin() {
   const [credentials, setCredentials] = useState({
-    username: "hulk_smash",
-    password: "banner123"
+    username: "iron_man",
+    password: "stark123"
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();

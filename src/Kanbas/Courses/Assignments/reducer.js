@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { assignments as dbAssignments } from "../../Database";
 import * as coursesClient from "../client";
 
 const initialState = {
