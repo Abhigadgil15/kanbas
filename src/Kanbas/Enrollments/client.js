@@ -17,7 +17,6 @@ export const enrollCourse = async (userId, courseId) => {
   }
 };
 
-// Function to unenroll a user from a course
 export const unenrollCourse = async (userId, courseId) => {
   try {
     const response = await axios.post(`${ENROLLMENTS_API}/unenroll`, {
@@ -40,8 +39,3 @@ export const getEnrollments = async (userId) => {
   }
 };
 
-//Courses
-export const fetchAllCourses = async () => {
-    const { data } = await axios.get(COURSES_API);
-    return data;
-    };

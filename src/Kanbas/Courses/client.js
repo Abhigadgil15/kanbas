@@ -1,11 +1,18 @@
 import axios from "axios";
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 const COURSES_API = `${REMOTE_SERVER}/api/courses`;
+const USERS_API = `${REMOTE_SERVER}/api/users`;
+
 export const fetchAllCourses = async () => {
   const { data } = await axios.get(COURSES_API);
   return data;
 };
 
+
+export const findCoursesForEnrolledUser = async (userId) => {
+  const { data } = await axios.get(`${USERS_API}/${userId}/courses`);
+  return data;
+}
 
 export const deleteCourse = async (id) => {
   const { data } = await axios.delete(`${COURSES_API}/${id}`);
