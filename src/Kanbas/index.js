@@ -61,12 +61,6 @@ export default function Kanbas() {
     })
   );};
 
-
-
-
-
-
-
   return (
 
         <div id="wd-kanbas">
