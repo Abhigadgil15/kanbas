@@ -1,0 +1,481 @@
+[
+  {
+    "_id": "Q001",
+    "title": "Quiz 1  - HTML",
+    "course": "CS101",
+    "type": "2024-05-06T00:00",
+    "due": "2024-05-13T23:59",
+    "description": "This quiz will test your knowledge of HTML.",
+    "points": 100,
+    "assignmentGroup": "Quizzes",
+    "shuffleAnswers": true,
+    "showCorrectAnswers": true,
+    "showCorrectAnswersDate": "2024-05-14T00:00",
+    "multipleAttempts": false,
+    "multipleAttemptsCount": 1,
+    "oneQuestionAtATime": true,
+    "webcamRequired": false,
+    "lockQuestionAfterAnswering": false,
+    "accessCode": "1234",
+    "dueDate": "2024-05-13T23:59",
+    "availableDate": "2024-05-06T00:00",
+    "untilDate": "2024-05-13T23:59",
+    "questions": [
+      {
+        "_id": "q001",
+        "type": "multiple_choice",
+        "title": "What does HTML stand for?",
+        "points": 10,
+        "description": "What does HTML stand for?",
+        "choices": [
+          {
+            "answer": "Hyper Text Markup Language",
+            "correct": true
+          },
+          {
+            "answer": "Hyperlinks and Text Markup Language",
+            "correct": false
+          },
+          {
+            "answer": "Home Tool Markup Language",
+            "correct": false
+          },
+          {
+            "answer": "Hyper Text Markup Leveler",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "_id": "q002",
+        "type": "multiple_choice",
+        "points": 10,
+        "title": "Who is making the Web standards?",
+        "description": "Who is making the Web standards?",
+        "choices": [
+          {
+            "answer": "Mozilla",
+            "correct": false
+          },
+          {
+            "answer": "Microsoft",
+            "correct": false
+          },
+          {
+            "answer": "The World Wide Web Consortium",
+            "correct": true
+          },
+          {
+            "answer": "Google",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "_id": "q003",
+        "type": "multiple_choice",
+        "points": 10,
+        "title": "Choose the correct HTML element for the largest heading:",
+        "description": "Choose the correct HTML element for the largest heading:",
+        "choices": [
+          {
+            "answer": "<h1>",
+            "correct": true
+          },
+          {
+            "answer": "<heading>",
+            "correct": false
+          },
+          {
+            "answer": "<h6>",
+            "correct": false
+          },
+          {
+            "answer": "<head>",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "_id": "q004",
+        "type": "multiple_choice",
+        "points": 10,
+        "title": "What is the correct HTML for creating a hyperlink?",
+        "description": "What is the correct HTML for creating a hyperlink?",
+        "choices": [
+          {
+            "answer": "<a href='http://www.w3schools.com'>W3Schools</a>",
+            "correct": true
+          },
+          {
+            "answer": "<a>http://www.w3schools.com</a>",
+            "correct": false
+          },
+          {
+            "answer": "<a name='http://www.w3schools.com'>W3Schools.com</a>",
+            "correct": false
+          },
+          {
+            "answer": "<a url='http://www.w3schools.com'>W3Schools.com</a>",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "_id": "q005",
+        "type": "multiple_choice",
+        "points": 10,
+        "title": "Which character is used to indicate an end tag?",
+        "description": "Which character is used to indicate an end tag?",
+        "choices": [
+          {
+            "answer": "^",
+            "correct": false
+          },
+          {
+            "answer": "<",
+            "correct": false
+          },
+          {
+            "answer": "/",
+            "correct": true
+          },
+          {
+            "answer": "*",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "Q002",
+    "title": "Quiz 2 - CSS",
+    "course": "CS101",
+    "type": "2024-05-06T00:00",
+    "due": "2024-05-13T23:59",
+    "description": "This quiz will test your knowledge of CSS.",
+    "points": 100,
+    "assignmentGroup": "Quizzes",
+    "shuffleAnswers": true,
+    "showCorrectAnswers": true,
+    "showCorrectAnswersDate": "2024-05-14T00:00",
+    "multipleAttempts": false,
+    "multipleAttemptsCount": 1,
+    "oneQuestionAtATime": true,
+    "webcamRequired": false,
+    "lockQuestionAfterAnswering": false,
+    "accessCode": "1234",
+    "dueDate": "2024-05-13T23:59",
+    "availableDate": "2024-05-06T00:00",
+    "untilDate": "2024-05-13T23:59",
+    "questions": [
+      {
+        "_id": "q006",
+        "type": "multiple_choice",
+        "title": "What does CSS stand for?",
+        "description": "CSS is used to control the style of a web page.",
+        "points": 10,
+        "choices": [
+          {
+            "answer": "Colorful Style Sheets",
+            "correct": false
+          },
+          {
+            "answer": "Creative Style Sheets",
+            "correct": false
+          },
+          {
+            "answer": "Computer Style Sheets",
+            "correct": false
+          },
+          {
+            "answer": "Cascading Style Sheets",
+            "correct": true
+          }
+        ]
+      },
+      {
+        "_id": "q007",
+        "type": "true_false",
+        "points": 10,
+        "title": "CSS is not useful for styling web pages.",
+        "description": "True or False?",
+        "correct": false
+      },
+      {
+        "_id": "q008",
+        "type": "fill_in_the_blanks",
+        "points": 10,
+        "title": "Where in an HTML document is the correct place to refer to an external style sheet?",
+        "description": "Fill in the blank.",
+        "correct": [
+          {
+            "answer": "At the end of the document "
+          },
+          {
+            "answer": "In the <body> section"
+          },
+          {
+            "answer": "In the <footer> section"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "Q003",
+    "title": "Quiz 1 - Introduction to NodeJS",
+    "course": "CS102",
+    "type": "2024-05-06T00:00",
+    "due": "2024-05-13T23:59",
+    "description": "This quiz will test your knowledge of NodeJS.",
+    "points": 100,
+    "assignmentGroup": "Quizzes",
+    "shuffleAnswers": true,
+    "showCorrectAnswers": true,
+    "showCorrectAnswersDate": "2024-05-14T00:00",
+    "multipleAttempts": false,
+    "multipleAttemptsCount": 1,
+    "oneQuestionAtATime": true,
+    "webcamRequired": false,
+    "lockQuestionAfterAnswering": false,
+    "accessCode": "1234",
+    "dueDate": "2024-05-13T23:59",
+    "availableDate": "2024-05-06T00:00",
+    "untilDate": "2024-05-13T23:59",
+    "questions": [
+      {
+        "_id": "q009",
+        "type": "true_false",
+        "title": "Inside which HTML element do we put the JavaScript?",
+        "description": "Inside which HTML element do we put the JavaScript?",
+        "points": 10,
+        "correct": true
+      },
+      {
+        "_id": "q010",
+        "type": "fill_in_the_blanks",
+        "points": 10,
+        "title": "Node JS is a _______ side platform built on Google Chrome's JavaScript V8 Engine.",
+        "description": "Node JS is a _______ side platform built on Google Chrome's JavaScript V8 Engine.",
+        "choices": [
+          {
+            "correct": "Server"
+          },
+          {
+            "correct": "server"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "Q004",
+    "title": "Quiz 2 - NodeJS - Part 2",
+    "course": "CS102",
+    "type": "2024-05-06T00:00",
+    "due": "2024-05-13T23:59",
+    "description": "This quiz will test your knowledge of NodeJS.",
+    "points": 50,
+    "assignmentGroup": "Quizzes",
+    "shuffleAnswers": true,
+    "showCorrectAnswers": true,
+    "showCorrectAnswersDate": "2024-05-14T00:00",
+    "multipleAttempts": false,
+    "multipleAttemptsCount": 1,
+    "oneQuestionAtATime": true,
+    "webcamRequired": false,
+    "lockQuestionAfterAnswering": false,
+    "accessCode": "1234",
+    "dueDate": "2024-05-13T23:59",
+    "availableDate": "2024-05-06T00:00",
+    "untilDate": "2024-05-13T23:59",
+    "questions": [
+      {
+        "_id": "q011",
+        "type": "multiple_choice",
+        "title": "What is Node.js?",
+        "description": "What is Node.js?",
+        "points": 10,
+        "choices": [
+          {
+            "answer": "Server-side Framework",
+            "correct": false
+          },
+          {
+            "answer": "JavaScript-based Framework",
+            "correct": false
+          },
+          {
+            "answer": "A JavaScript runtime built on Chrome's V8 JavaScript engine",
+            "correct": true
+          },
+          {
+            "answer": "A client-side framework",
+            "correct": false
+          }
+        ]
+      },
+      {
+        "_id": "q012",
+        "type": "multiple_choice",
+        "points": 10,
+        "title": "Which of the following is true about Node.js?",
+        "description": "Which of the following is true about Node.js?",
+        "choices": [
+          {
+            "answer": "Node.js is a JavaScript-based framework",
+            "correct": false
+          },
+          {
+            "answer": "Node.js is a server-side framework",
+            "correct": false
+          },
+          {
+            "answer": "Node.js uses non-blocking, event-driven I/O",
+            "correct": true
+          },
+          {
+            "answer": "Node.js uses blocking, event-driven I/O",
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+    {
+        "_id": "Q005",
+        "title": "Quiz 1 - Rocket Propulsion",
+        "course": "CS103",
+        "type": "2024-05-06T00:00",
+        "due": "2024-05-13T23:59",
+        "description": "This quiz will test your knowledge of Rockets.",
+        "points": 50,
+        "assignmentGroup": "Quizzes",
+        "shuffleAnswers": true,
+        "showCorrectAnswers": true,
+        "showCorrectAnswersDate": "2024-05-14T00:00",
+        "multipleAttempts": false,
+        "multipleAttemptsCount": 1,
+        "oneQuestionAtATime": true,
+        "webcamRequired": false,
+        "lockQuestionAfterAnswering": false,
+        "accessCode": "1234",
+        "dueDate": "2024-05-13T23:59",
+        "availableDate": "2024-05-06T00:00",
+        "untilDate": "2024-05-13T23:59",
+        "questions": [
+        {
+            "_id": "q013",
+            "type": "multiple_choice",
+            "title": "What is the use of Rocket Engines?",
+            "description": "What is the use of Rocket Engines?",
+            "points": 10,
+            "choices": [
+            {
+                "answer": "It is used to set the environment in which the node application is running",
+                "correct": true
+            },
+            {
+                "answer": "It is used to set the environment in which the node application is running",
+                "correct": false
+            },
+            {
+                "answer": "It is used to set the environment in which the node application is running",
+                "correct": false
+            },
+            {
+                "answer": "It is used to set the environment in which the node application is running",
+                "correct": false
+            }
+            ]
+        },
+        {
+            "_id": "q014",
+            "type":"fill_in_the_blanks",
+            "points": 10,
+            "title": "What is the use of Rocket Engines?",
+            "description": "What is the use of Rocket Engines?",
+            "correct": [
+            {
+                "answer": "It is used to set the environment in which the node application is running"
+            },
+            {
+                "answer": "It is used to set the environment in which the node application is running"
+            },
+            {
+                "answer": "It is used to set the environment in which the node application is running"
+            }
+            ]
+        }
+    ]
+},
+{
+    "_id": "Q006",
+    "title": "Quiz 2 - Rocket Propulsion",
+    "course": "CS103",
+    "type": "2024-05-06T00:00",
+    "due": "2024-05-13T23:59",
+    "description": "This quiz will test your knowledge of Rockets.",
+    "points": 50,
+    "assignmentGroup": "Quizzes",
+    "shuffleAnswers": true,
+    "showCorrectAnswers": true,
+    "showCorrectAnswersDate": "2024-05-14T00:00",
+    "multipleAttempts": false,
+    "multipleAttemptsCount": 1,
+    "oneQuestionAtATime": true,
+    "webcamRequired": false,
+    "lockQuestionAfterAnswering": false,
+    "accessCode": "1234",
+    "dueDate": "2024-05-13T23:59",
+    "availableDate": "2024-05-06T00:00",
+    "untilDate": "2024-05-13T23:59",
+    "questions": [
+    {
+        "_id": "q015",
+        "type": "multiple_choice",
+        "title": "What is the use of Rocket Engines?",
+        "description": "What is the use of Rocket Engines?",
+        "points": 10,
+        "choices": [
+        {
+            "answer": "It is used to set the environment in which the node application is running",
+            "correct": true
+        },
+        {
+            "answer": "It is used to set the environment in which the node application is running",
+            "correct": false
+        },
+        {
+            "answer": "It is used to set the environment in which the node application is running",
+            "correct": false
+        },
+        {
+            "answer": "It is used to set the environment in which the node application is running",
+            "correct": false
+        }
+        ]
+    },
+    {
+        "_id": "q016",
+        "type":"fill_in_the_blanks",
+        "points": 10,
+        "title": "What is the use of Rocket Engines?",
+        "description": "What is the use of Rocket Engines?",
+        "correct": [
+        {
+            "answer": "It is used to set the environment in which the node application is running"
+        },
+        { 
+            "answer": "It is used to set the environment in which the node application is running"
+        },
+        {
+            "answer": "It is used to set the environment in which the node application is running"
+        }
+        ]
+    }
+]
+}
+]

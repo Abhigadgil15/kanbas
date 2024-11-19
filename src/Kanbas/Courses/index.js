@@ -8,6 +8,7 @@ import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
 import { useParams } from "react-router";
+import QuizEditor from "./Quizzes/QuizEditor";
 
 export default function Courses({ courses }) {
   const { pathname } = useLocation();
@@ -34,7 +35,7 @@ export default function Courses({ courses }) {
             <Route path="Zoom" element={<h2>Zoom</h2>} />
             <Route path="Assignments" element={<Assignments />} />
             <Route path="Assignments/:aid" element={<AssignmentEditor />} />
-            <Route path="Quizzes" element={<h2>Quizzes</h2>} />
+            <Route path="Quizzes/*"  element={<QuizEditor />}  />
             <Route path="Grades" element={<h2>Grades</h2>} />
             <Route path="People" element={<PeopleTable/>}/>
           </Routes>
