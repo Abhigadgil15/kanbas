@@ -1,45 +1,61 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, useLocation } from "react-router-dom";
-import { useParams } from "react-router";
-import { useEffect } from "react";
+import { Navigate, useParams } from "react-router-dom";
+import axios from "axios";
+const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 
-export default function ProtectedRoute({ children }) {
+export default function ProtectedRoute({ children}) {
+  const { cid } = useParams();
   const { currentUser } = useSelector((state) => state.accountReducer);
-  const enrollments = useSelector((state) => state.enrollmentReducer.enrollments);
-  const { cid: courseId } = useParams();
-  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isEnrolled, setIsEnrolled] = useState(false);
 
   useEffect(() => {
-    // Check if the user is a student and the courseId is provided
-    if (currentUser?.role === "STUDENT" && courseId) {
-      const isEnrolled = enrollments.some(
-        (enrollment) => enrollment.user === currentUser._id && enrollment.course === courseId
-      );
-
-      // If the student is not enrolled in the course
-      if (!isEnrolled) {
-        alert("You must enroll in the course first");
+    const checkEnrollment = async () => {
+      if (!currentUser) {
+        setIsLoading(false);
+        return;
       }
-    }
-  }, [currentUser, courseId, enrollments]);
 
-  // Check if the user is logged in
+      if (!cid) {
+        setIsEnrolled(true);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const response = await axios.get(
+          `${REMOTE_SERVER}/api/users/${currentUser._id}/courses`, { withCredentials: true }
+        );
+        setIsEnrolled(
+          response.data.some((enrollment) => enrollment._id === cid)
+        );
+      } catch (error) {
+        console.error("Error:", error);
+        setIsEnrolled(false);
+      }
+      setIsLoading(false);
+    };
+
+    checkEnrollment();
+  }, [currentUser, cid]);
+
   if (!currentUser) {
-    return <Navigate to="/Kanbas/Account/Signin" replace state={{ from: location }} />;
+    return <Navigate to="/Kanbas/Account/Signin" />;
   }
 
-  // If the user is a student and the courseId is provided, check enrollment
-  if (currentUser.role === "STUDENT" && courseId) {
-    const isEnrolled = enrollments.some(
-      (enrollment) => enrollment.user === currentUser._id && enrollment.course === courseId
-    );
-
-    // If the student is not enrolled in the course
-    if (!isEnrolled) {
-      return <Navigate to="/Kanbas/Dashboard" replace />;
-    }
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
-  // If all checks pass, return the children
+  if (cid && !isEnrolled) {
+    console.log("here")
+    return <Navigate to="/Kanbas/Dashboard" />;
+  }
+  
+  // if (!isEnrolled) {
+  //   console.log(isEnrolled)
+  // }
+
   return children;
 }

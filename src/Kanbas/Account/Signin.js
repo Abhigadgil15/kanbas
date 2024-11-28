@@ -6,8 +6,8 @@ import * as client from "./client";
 
 export default function Signin() {
   const [credentials, setCredentials] = useState({
-    username: "iron_man",
-    password: "stark123"
+    username: "capt_america",
+    password: "rogers123"
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();

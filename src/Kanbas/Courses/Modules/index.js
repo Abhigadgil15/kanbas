@@ -13,6 +13,7 @@ import * as modulesClient from "./client";
 export default function Modules() {
   const { cid } = useParams();
   const [moduleName, setModuleName] = useState("");
+  const [moduleId, setModuleId] = useState("");
   const { modules } = useSelector((state) => state.modulesReducer);
   const { currentUser } = useSelector((state) => state.accountReducer); // Access currentUser for role-based control
   const dispatch = useDispatch();
@@ -20,12 +21,17 @@ export default function Modules() {
     const modules = await coursesClient.findModulesForCourse(cid);
     dispatch(setModules(modules));
   };
+  useEffect(() => {
+    fetchModules();
+  }, [moduleId]);
 
 
   const createModuleForCourse = async () => {
     if (!cid) return;
     const newModule = { name: moduleName, course: cid };
     const module = await coursesClient.createModuleForCourse(cid, newModule);
+    console.log(module);
+    setModuleId(module._id);
     dispatch(addModule(module));
   };
 
@@ -38,13 +44,6 @@ export default function Modules() {
     await modulesClient.updateModule(module);
     dispatch(updateModule(module));
   };
-
-
-
-
-  useEffect(() => {
-    fetchModules();
-  }, []);
 
 
   return (
