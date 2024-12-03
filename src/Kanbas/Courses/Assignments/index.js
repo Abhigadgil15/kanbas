@@ -18,9 +18,13 @@ export default function Assignments() {
   const { currentUser } = useSelector((state) => state.accountReducer); // Get currentUser from Redux
     const fetchAllAssignments = async () => {
     const assignments = await coursesClient.findAssignmentsForCourse(cid);
-    console.log(assignments); 
     dispatch(setAssignments(assignments));
   }
+
+  // const fetchModules = async () => {
+  //   const modules = await coursesClient.findModulesForCourse(cid);
+  //   dispatch(setModules(modules));
+  // };
 
 
 
